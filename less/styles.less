@@ -1,0 +1,59 @@
+// out: ../styles.css, sourcemap: true, compress: true
+
+@import 'normalize.less';
+@import 'variables';
+@import 'general-html';
+@import 'layout';
+
+#header {
+  background-color: @bg-main;
+  color: @text-main;
+  margin: 0 @padding-normal @padding-normal 0;
+  width:  150px;
+  height: 150px;
+  float: left;
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+
+  h1 {
+    margin: 0;
+    padding: 65px 0 0 0;
+    font-size: 32px;
+  }
+}
+
+.btn-play {
+  background-color: @bg-main;
+  color: @text-main;
+  border: none;
+  float: left;
+  font-size: 12px;
+  margin: 0 5px 0 0;
+}
+
+video {
+  display: block; /* for IE8 */
+}
+video#background-video {
+  position: fixed;
+  top:  50%;
+  left: 50%;
+  min-width:  100%;
+  min-height: 100%;
+  width:  auto;
+  height: auto;
+  z-index: -5;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  background: url(img/kosmopilot.png) no-repeat;
+  background-size: cover;
+}
+
+.text-muted {
+  color: @text-muted;
+}
+
+.clearfix {
+  clear: both;
+}
