@@ -4,9 +4,16 @@ html, body {
 
   color: @text-main;
   text-shadow: 1px 1px 1px @bg-main;
-  font-family: 'Droid Sans', Arial, sans-serif;
+  font-family: Montserrat, Arial, sans-serif;
   font-size: @text-size-normal;
   line-height: 1.5em;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url(fonts/Montserrat-Regular.otf);
+  font-weight: 400;
 }
 
 a:link, a:active, a:focus, a:visited {
@@ -34,7 +41,7 @@ table {
   tr {
     td {
       vertical-align: top;
-      padding: 0 5px 0 0;
+      padding: 0 10px 0 0;
     }
   }
 }

@@ -9,4 +9,10 @@ function toggleSong() {
     player.pause();
     button.innerHTML = '<i class="fa fa-play"></i>';
   }
+
+  // Return to default state when song has ended:
+  player.addEventListener('ended', function(e) {
+    player.pause();
+    button.innerHTML = '<i class="fa fa-play"></i>';
+  }, false);
 }
