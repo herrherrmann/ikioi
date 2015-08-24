@@ -3,7 +3,8 @@
 @import 'normalize.less';
 @import 'variables';
 @import 'general-html';
-@import 'layout';
+@import 'layout'; 
+@import 'font-awesome/font-awesome';
 
 #header {
   background-color: @bg-main;
@@ -11,7 +12,7 @@
   margin: 0 @padding-normal @padding-normal 0;
   width:  150px;
   height: 150px;
-  float: left; 
+  float: left;
   text-align: center;
   vertical-align: middle;
   position: relative;
@@ -19,23 +20,21 @@
   h1 {
     margin: 0;
     padding: 65px 0 0 0;
-    font-size: 32px;
+    font-size: 36px;
   }
 }
 
-.btn-play {
-  background-color: @bg-main;
-  color: @text-main;
+#btn-player {
+  width:  25px;
+  height: 25px;
+
   border: none;
-  float: left;
-  font-size: 12px;
-  margin: 0 5px 0 0;
+  background-color: @bg-main;
+  font-size: 14px;
+  color: @text-main;
 }
 
-video {
-  display: block; /* for IE8 */
-}
-video#background-video {
+#background-video {
   position: fixed;
   top:  50%;
   left: 50%;

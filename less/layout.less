@@ -1,5 +1,5 @@
 /* Desktop */
-@media screen and (min-width: 801px) {
+@media screen and (min-width: 800px) {
   .mobile  { display: none;  }
   .desktop { display: block; }
 
@@ -7,11 +7,7 @@
     padding: @padding-big;
   }
 
-  #contact {
-    float: left;
-  }
-
-  #gigs {
+  #contact, #gigs, #btn-player {
     float: left;
   }
 
@@ -20,6 +16,10 @@
     top:   50%;
     left:  50%;
     width: 40%;
+
+    .text {
+      margin-left: 40px;
+    }
   }
 }
 
@@ -33,7 +33,7 @@
     padding: @padding-big;
   }
 
-  #contact, #gigs {
+  #contact, #gigs, #btn-player {
     float: none;
   }
 
@@ -57,7 +57,13 @@
     .contact-link {
       margin-bottom: @padding-big;
     }
-  } 
+  }
+
+  #btn-player {
+    width:  50px;
+    height: 50px;
+    font-size: @text-size-mobile;
+  }
 
   body{
     background: url(img/killerwels.jpg) #000 no-repeat center center fixed;
