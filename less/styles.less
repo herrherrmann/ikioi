@@ -45,8 +45,18 @@
   z-index: -5;
   -webkit-transform: translateX(-50%) translateY(-50%);
           transform: translateX(-50%) translateY(-50%);
-  background: url(img/killerwels.jpg) no-repeat;
+  background: url(img/killerwels-start.jpg) no-repeat;
   background-size: cover;
+}
+
+#background-color {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width:  200%;
+  height: 200%;
+  z-index: -10;
+  background-color: @bg-main;
 }
 
 .text-muted {
