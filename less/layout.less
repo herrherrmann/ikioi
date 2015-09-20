@@ -1,22 +1,33 @@
 /* Desktop */
 @media screen and (min-width: 800px) {
-  .mobile  { display: none;  }
-  .desktop { display: block; }
+  .mobile {
+    display: none;
+  }
+
+  .desktop {
+    display: block;
+  }
 
   #container {
     padding: @padding-big;
   }
 
-  #contact, #gigs, #btn-player {
+  #contact,
+  #gigs,
+  #btn-player {
     float: left;
   }
 
   .impressum-link {
     float: right;
-
-    a:link, a:active, a:focus, a:visited {
+    
+    a:link,
+    a:active,
+    a:focus,
+    a:visited {
       color: @text-muted;
     }
+
     a:hover {
       color: @text-muted;
     }
@@ -24,27 +35,34 @@
 
   #lyrics {
     position: absolute;
-    top:   50%;
-    left:  50%;
-    width: 40%;
-
+    top     : 50%;
+    left    : 50%;
+    width   : 40%;
+    
     .text {
       margin-left: 40px;
     }
   }
 }
 
-
 /* Small Desktop */
 @media screen and (max-width: 800px) {
-  .mobile  { display: none;  }
-  .desktop { display: block; }
+  .mobile {
+    display: none;
+  }
+
+  .desktop {
+    display: block;
+  }
 
   #container {
     padding: @padding-big;
   }
 
-  #contact, #gigs, #btn-player {
+  #contact,
+  #gigs,
+  #btn-player,
+  .impressum-link {
     float: none;
   }
 
@@ -55,8 +73,13 @@
 
 /* Mobile */
 @media screen and (max-device-width: 800px) {
-  .mobile  { display: block; }
-  .desktop { display: none;  }
+  .mobile {
+    display: block;
+  }
+
+  .desktop {
+    display: none;
+  }
 
   #container {
     padding: @padding-small;
@@ -64,24 +87,27 @@
 
   #contact {
     font-size: @text-size-mobile;
-
+    
     .contact-link {
       margin-bottom: @padding-big;
     }
   }
 
+  .impressum-link {
+    font-size: @text-size-mobile;
+  }
+
   #btn-player {
-    width:  50px;
-    height: 50px;
+    width    : 50px;
+    height   : 50px;
     font-size: @text-size-mobile;
   }
 
   body {
-    background: url(img/killerwels-mobile.jpg) #000 no-repeat center center fixed;
+    background: url("img/killerwels-mobile.jpg") #000 no-repeat center center fixed;
   }
 
   #background-video {
     display: none;
   }
-
 }

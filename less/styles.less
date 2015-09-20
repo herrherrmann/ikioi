@@ -1,5 +1,4 @@
 // out: ../styles.css, sourcemap: true, compress: true
-
 @import 'normalize.less';
 @import 'variables';
 @import 'general-html';
@@ -7,51 +6,50 @@
 
 #header {
   background-color: @bg-main;
-  color: @text-main;
-  margin: 0 @padding-normal @padding-normal 0;
-  width:  150px;
-  height: 150px;
-  float: left;
-  text-align: center;
-  vertical-align: middle;
-  position: relative;
-
+  color           : @text-main;
+  margin          : 0 @padding-normal @padding-normal 0;
+  width           : 150px;
+  height          : 150px;
+  float           : left;
+  text-align      : center;
+  vertical-align  : middle;
+  position        : relative;
+  
   h1 {
-    margin: 0;
+    margin     : 0;
     padding-top: 64px;
-    font-size: 36px;
+    font-size  : 36px;
     font-family: Arial, Helvetica, sans-serif;
   }
 }
 
 #btn-player {
-  width:  25px;
-  height: 25px;
-
-  border: none;
+  width           : 25px;
+  height          : 25px;
+  border          : none;
   background-color: @bg-main;
-  font-size: 14px;
-  color: @text-main;
+  font-size       : 14px;
+  color           : @text-main;
 }
 
 #background-video {
-  position: fixed;
-  top:  50%;
-  left: 50%;
-  min-width:  100%;
-  min-height: 100%;
-  width:  auto;
-  height: auto;
-  z-index: -5;
+  position         : fixed;
+  top              : 50%;
+  left             : 50%;
+  min-width        : 100%;
+  min-height       : 100%;
+  width            : auto;
+  height           : auto;
+  z-index          : -5;
   -webkit-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%);
-  background: url(img/killerwels-start.jpg) no-repeat;
-  background-size: cover;
+  transform        : translateX(-50%) translateY(-50%);
+  background       : url("img/killerwels-start.jpg") no-repeat;
+  background-size  : cover;
 }
 
 #impressum {
   background-color: @bg-main;
-  margin: 0 @padding-normal;
+  margin          : 0 @padding-normal;
 }
 
 .text-muted {
