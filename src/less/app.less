@@ -1,16 +1,79 @@
 @import '../../node_modules/bootstrap/less/bootstrap.less';
+@import (inline) '../../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css';
+@import 'normalize.less';
+@import 'variables';
+@import 'general-html';
+@import 'layout';
 
-body {
-    background-color: rgb(9, 15, 21);
-    color           : rgb(190, 190, 190);
-    font-family     : 'Open Sans';
+#header {
+    background-color: @bg-main;
+    color           : @text-main;
+    margin          : 0 @padding-normal @padding-normal 0;
+    width           : 150px;
+    height          : 150px;
+    float           : left;
+    text-align      : center;
+    vertical-align  : middle;
+    position        : relative;
+
+    h1 {
+        margin     : 0;
+        padding-top: 64px;
+        font-size  : 36px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
 }
 
-h1 {
-    font-size: 50px;
-    color    : #FBBD00;
+#btn-player {
+    width           : 25px;
+    height          : 25px;
+    border          : none;
+    background-color: @bg-main;
+    font-size       : 14px;
+    color           : @text-main;
 }
 
-p {
-    font-size: 22px;
+#background-video {
+    position         : fixed;
+    top              : 50%;
+    left             : 50%;
+    min-width        : 100%;
+    min-height       : 100%;
+    width            : auto;
+    height           : auto;
+    z-index          : -5;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform        : translateX(-50%) translateY(-50%);
+    background       : url('assets/img/killerwels-start.jpg') no-repeat;
+    background-size  : cover;
+}
+
+#impressum-link {
+    a:link,
+    a:active,
+    a:focus,
+    a:visited {
+        color: @text-muted;
+    }
+
+    a:hover {
+        color: @text-muted;
+    }
+}
+
+#impressum {
+    background-color: @bg-main;
+    margin          : 0 @padding-normal;
+}
+
+.text-muted {
+    color: @text-muted;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.clearfix {
+    clear: both;
 }

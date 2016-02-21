@@ -1,42 +1,55 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="jw-ng-template">
+<html lang="de" ng-app="jw-ng-template">
 <head>
-	<meta charset="UTF-8">
+	<title>勢い</title>
 	<base href="/">
-	<title>JustWatch - jw-ng-template</title>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="勢い">
+    <meta name="keywords" content="勢い, Ikioi, Band, Mainz, Frankfurt, Emo, Punk, D.I.Y, do it yourself, Post-Punk, Jazz, Hardcore, Screamo, Post-rock, Stern Fucking Zeit, Maitresse, Manku Kapak, Flo und Paul und Flo, Rattenkönig, fljora, Cool Living, Stempelkissen Inc, mum says; be polite, Product Productions Inc., Bitter Lemming, Kosmopilot, Entertainment Brandstiftung, Killerwels in WIldweser, Apollo Nölf, Ferdina, Vinyl, CD, records, musik, music, E-Piano, Schlagzeug, Bass, Delay">
+	<!-- Facebook OG -->
+    <meta property="og:title" content="勢い">
+    <meta property="og:site_name" content="勢い">
+    <meta property="og:image" content="http://unruhe.org/assets/img/facebook-image.png">
+    <meta property="og:url" content="http://unruhe.org">
+    <meta property="og:type" content="website">
 
-	<meta name="keywords" content="">
-	<meta name="description" content="">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <script>document.createElement('video');</script> <![endif]-->
 
-	<!-- facebook OG -->
-	<meta property="og:site_name" content="" />
-	<meta property="fb:app_id" content="" />
-	<meta property="og:title" content="" />
-	<meta property="og:description" content="" />
-
+	<!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/img/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/img/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/img/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/img/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/img/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/img/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/img/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="assets/img/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="assets/img/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="assets/img/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="assets/img/favicons/android-chrome-192x192.png" sizes="192x192">
+    <link rel="manifest" href="assets/img/favicons/manifest.json">
+    <link rel="shortcut icon" href="assets/img/favicons/favicon.ico">
 	<meta name="mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 
-	<link rel="shortcut icon" sizes="196x196" href="https://static.justwatch.com/static/compile_jw/assets/android-icon-196x196.png">
-	<link rel="apple-touch-icon-precomposed" href="https://static.justwatch.com/static/compile_jw/assets/apple-touch-icon-iphone.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://static.justwatch.com/static/compile_jw/assets/apple-touch-icon-iphone.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://static.justwatch.com/static/compile_jw/assets/apple-touch-icon-ipad.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://static.justwatch.com/static/compile_jw/assets/apple-touch-icon-iphone-retina-display.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://static.justwatch.com/static/compile_jw/assets/apple-touch-icon-ipad-retina-display.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="200x200" href="https://static.justwatch.com/static/compile_jw/assets/apple-touch-icon-retina.png" />
-
-	<!-- compiled CSS -->
+	<!-- Stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat|Droid+Sans:400,700">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<% styles.forEach( function ( file ) { %>
 		<link rel="stylesheet" type="text/css" href="<%= file %>" />
 	<% }); %>
-	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,400italic,700italic,700,300' rel='stylesheet' type='text/css'>
 
 </head>
 
 <body>
 
-	<div ui-view class="{{$state.current.name}}">
-
+	<div class="container">
+		<div ui-view></div>
 	</div>
 
 	<!-- compiled JavaScript -->
