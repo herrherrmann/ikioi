@@ -29,12 +29,11 @@ module.exports = {
 		js: [
 			'node_modules/angular/angular.js',
 			'node_modules/angular-animate/angular-animate.js',
-			'node_modules/angular-bootstrap-npm/dist/angular-bootstrap-tpls.js',
 			'node_modules/angular-resource/angular-resource.min.js',
 			'node_modules/angular-sanitize/angular-sanitize.js',
 			'node_modules/angular-scroll/angular-scroll.min.js',
 			'node_modules/angular-toarrayfilter/toArrayFilter.js',
-			'node_modules/angular-translate/dist/angular-translate.js',
+			'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',
 			'node_modules/angular-ui-router/release/angular-ui-router.js',
 			'node_modules/fastclick/lib/fastclick.js'
 		],

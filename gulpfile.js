@@ -10,7 +10,7 @@ var exec = require('child_process')
 	.exec;
 var browserSync = require('browser-sync')
 	.create();
-var history = require('connect-history-api-fallback');
+var historyFallback = require('connect-history-api-fallback');
 
 require('require-dir')('./gulp-tasks');
 
@@ -54,7 +54,7 @@ function getTemplateProperties(dir) {
 
 	if(dir == paths.build_dir) {
 		var vendors = paths.vendor.js;
-		vendorScripts = vendors.map(function (item) {
+		vendorScripts = vendors.map(function(item) {
 			return 'vendor' + item.substring(item.lastIndexOf('/'));
 		});
 	}
@@ -63,7 +63,7 @@ function getTemplateProperties(dir) {
 		cwd: dir
 	});
 
-	scripts = scripts.map(function (item) {
+	scripts = scripts.map(function(item) {
 		return item.replace(dir, '');
 	});
 	result.scripts = [].concat(vendorScripts, scripts);
@@ -72,7 +72,7 @@ function getTemplateProperties(dir) {
 	result.styles = globby.sync('**/*.css', {
 		cwd: dir
 	});
-	result.styles = result.styles.map(function (item) {
+	result.styles = result.styles.map(function(item) {
 		return item.replace('build/', '');
 	});
 
@@ -80,24 +80,24 @@ function getTemplateProperties(dir) {
 }
 
 function filterJs(files) {
-	return files.filter(function (file) {
+	return files.filter(function(file) {
 		return file.match(/\.js$/);
 	});
 }
 
 function filterCss(files) {
-	return files.filter(function (file) {
+	return files.filter(function(file) {
 		return file.match(/\.css$/);
 	});
 }
 
 
 
-gulp.task('clean', function () {
+gulp.task('clean', function() {
 	return del([paths.build_dir, paths.compile_dir]);
 });
 
-gulp.task('lint', function () {
+gulp.task('lint', function() {
 	return gulp.src(paths.components.concat(paths[environment.getEnv()].js))
 		.pipe(plugins.cached('linting'))
 		// .pipe(plugins.changed(paths.build_dir))
@@ -106,7 +106,7 @@ gulp.task('lint', function () {
 		.pipe(plugins.jshint.reporter('fail'));
 });
 
-gulp.task('scripts', ['lint'], function () {
+gulp.task('scripts', ['lint'], function() {
 	var streams = {};
 	streams.js = gulp.src(paths[environment.getEnv()].js)
 		.pipe(plugins.cached('scripts'))
@@ -122,7 +122,7 @@ gulp.task('scripts', ['lint'], function () {
 	return merge(streams.js, streams.components);
 });
 
-gulp.task('compile-scripts', function () {
+gulp.task('compile-scripts', function() {
 	var src = paths.vendor.js.concat([
 		paths.build_dir + 'src/app.js',
 		paths.build_dir + 'src/**/*.js'
@@ -135,12 +135,12 @@ gulp.task('compile-scripts', function () {
 });
 
 // TODO gylphicons need to be on root - should be on S3 anyway
-gulp.task('compile-assets', function () {
+gulp.task('compile-assets', function() {
 	return gulp.src(paths.vendor.assets.concat(paths.assets))
 		.pipe(gulp.dest(paths.compile_dir + 'assets/'));
 });
 
-gulp.task('styles', [], function () {
+gulp.task('styles', [], function() {
 	var streams = {};
 
 	streams.less = gulp.src(paths[environment.getEnv()].less)
@@ -158,7 +158,7 @@ gulp.task('styles', [], function () {
 	return merge(streams.less, streams.sass);
 });
 
-gulp.task('compile-styles', function () {
+gulp.task('compile-styles', function() {
 	return gulp.src(paths.build_dir + '*.css')
 		.pipe(plugins.minifyCss({
 			processImport: false
@@ -166,7 +166,7 @@ gulp.task('compile-styles', function () {
 		.pipe(gulp.dest(paths.compile_dir));
 });
 
-gulp.task('changelog', function () {
+gulp.task('changelog', function() {
 	return gulp.src('CHANGELOG.md')
 		.pipe(plugins.conventionalChangelog({
 			context: 'changelog.tpl',
@@ -177,7 +177,7 @@ gulp.task('changelog', function () {
 		.pipe(gulp.dest('./'));
 });
 
-gulp.task('html', [], function () {
+gulp.task('html', [], function() {
 	return gulp.src(paths[environment.getEnv()].atpl)
 		.pipe(plugins.preprocess(getPreprocessContext()))
 		.pipe(plugins.minifyHtml({
@@ -195,35 +195,35 @@ gulp.task('html', [], function () {
 		.pipe(gulp.dest(paths.build_dir + 'src'));
 });
 
-gulp.task('index', ['styles', 'scripts', 'html', 'vendor'], function () {
+gulp.task('index', ['styles', 'scripts', 'html', 'vendor'], function() {
 	return gulp.src(paths.index)
 		.pipe(plugins.preprocess(getPreprocessContext()))
 		.pipe(plugins.template(getTemplateProperties(paths.build_dir)))
 		.pipe(gulp.dest(paths.build_dir));
 });
 
-gulp.task('compile-index', ['compile-scripts', 'compile-styles'], function () {
+gulp.task('compile-index', ['compile-scripts', 'compile-styles'], function() {
 	return gulp.src(paths.index)
 		.pipe(plugins.preprocess(getPreprocessContext()))
 		.pipe(plugins.template(getTemplateProperties(paths.compile_dir)))
 		.pipe(gulp.dest(paths.compile_dir));
 });
 
-gulp.task('vendor', function () {
+gulp.task('vendor', function() {
 	var src = paths.vendor.js;
 
 	return gulp.src(src)
 		.pipe(gulp.dest(paths.build_dir + 'vendor'));
 });
 
-gulp.task('assets', function () {
+gulp.task('assets', function() {
 	var assets = paths.vendor.assets.concat(paths.assets, paths[environment.getEnv()].assets);
 	return gulp.src(assets)
 		.pipe(plugins.cached('assets'))
 		.pipe(gulp.dest(paths.build_dir + 'assets/'));
 });
 
-gulp.task('watch', ['default'], function (cb) {
+gulp.task('watch', ['default'], function(cb) {
 	gulp.watch(paths[environment.getEnv()].js, ['_watch-scripts']);
 	gulp.watch(paths.vendor.assets.concat(paths.assets), ['_watch-assets']);
 	gulp.watch(paths.index, ['_watch-index']);
@@ -238,7 +238,7 @@ gulp.task('watch', ['default'], function (cb) {
 		browserSync.init({
 			server: {
 				baseDir: paths.build_dir,
-				middleware: [history()]
+				middleware: [historyFallback()]
 			}
 		});
 	}
@@ -246,33 +246,33 @@ gulp.task('watch', ['default'], function (cb) {
 	cb();
 });
 
-gulp.task('_watch-scripts', function (cb) {
+gulp.task('_watch-scripts', function(cb) {
 	return runSequence(['lint', 'scripts'], ['_browser-reload'], cb);
 });
 
-gulp.task('_watch-assets', function (cb) {
+gulp.task('_watch-assets', function(cb) {
 	return runSequence(['assets'], ['_browser-reload'], cb);
 });
 
-gulp.task('_watch-index', function (cb) {
+gulp.task('_watch-index', function(cb) {
 	return runSequence(['index'], ['_browser-reload'], cb);
 });
 
-gulp.task('_watch-html', function (cb) {
+gulp.task('_watch-html', function(cb) {
 	return runSequence(['html'], ['_browser-reload'], cb);
 });
 
-gulp.task('_watch-styles', function (cb) {
+gulp.task('_watch-styles', function(cb) {
 	return runSequence(['styles'], ['_browser-reload'], cb);
 });
 
-gulp.task('_browser-reload', function (cb) {
+gulp.task('_browser-reload', function(cb) {
 	browserSync.reload();
 	cb();
 });
 
 
-gulp.task('default', function (cb) {
+gulp.task('default', function(cb) {
 	return runSequence(
 		['clean'], ['scripts', 'styles', 'html', 'vendor', 'assets', 'index'],
 		cb // tell gulp task has ended
@@ -280,7 +280,7 @@ gulp.task('default', function (cb) {
 });
 gulp.task('build', ['default']);
 
-gulp.task('compile', function (cb) {
+gulp.task('compile', function(cb) {
 	return runSequence(
 		['prod'], ['default'], ['compile-scripts', 'compile-styles', 'compile-assets', 'compile-index'],
 		cb // tell gulp task has ended
