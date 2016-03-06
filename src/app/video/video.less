@@ -1,16 +1,7 @@
 #background-video {
-    position         : fixed;
-    top              : 50%;
-    left             : 50%;
-    min-width        : 100%;
-    min-height       : 100%;
-    width            : auto;
-    height           : auto;
-    z-index          : -5;
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform        : translateX(-50%) translateY(-50%);
-    background       : url('assets/img/stills/start.jpg') no-repeat;
-    background-size  : cover;
+    z-index        : -5;
+    background     : url('assets/img/stills/start.jpg') no-repeat; // TODO: Make dynamic.
+    background-size: cover;
 }
 
 /* Mobile */
@@ -21,5 +12,23 @@
 
     #background-video {
         display: none;
+    }
+}
+
+.background-video {
+    position         : fixed;
+    top              : 50%;
+    left             : 50%;
+    min-width        : 100%;
+    min-height       : 100%;
+    width            : auto;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform        : translateX(-50%) translateY(-50%);
+    height           : auto;
+}
+
+videogular {
+    video {
+        .background-video;
     }
 }
