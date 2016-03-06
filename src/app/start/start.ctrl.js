@@ -1,4 +1,4 @@
-angular.module('jw-ng-template')
+angular.module('ikioi')
 
 .controller('StartCtrl', () => {
 

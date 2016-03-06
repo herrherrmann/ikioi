@@ -1,6 +1,7 @@
-angular.module('jw-ng-template', [
+angular.module('ikioi', [
 	'ui.router',
 	'ui.bootstrap',
+	'ngAnimate',
 	'templates-app',
 	'angular-toArrayFilter'
 ])

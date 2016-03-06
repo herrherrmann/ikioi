@@ -1,0 +1,86 @@
+@animation-time: 1s;
+
+.view-frame.ng-enter,
+.view-frame.ng-leave {
+    background: @bg-main;
+    // position  : absolute;
+    // top       : 0;
+    // left      : 0;
+    // right     : 0;
+}
+
+.view-frame.ng-enter {
+    -webkit-animation: @animation-time fade-in;
+    -moz-animation   : @animation-time fade-in;
+    -o-animation     : @animation-time fade-in;
+    animation        : @animation-time fade-in;
+    z-index          : 100;
+}
+
+.view-frame.ng-leave {
+    -webkit-animation: @animation-time fade-out;
+    -moz-animation   : @animation-time fade-out;
+    -o-animation     : @animation-time fade-out;
+    animation        : @animation-time fade-out;
+    z-index          : 99;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
