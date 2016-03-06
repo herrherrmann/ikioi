@@ -1,0 +1,29 @@
+.physical-item {
+    width     : auto;
+    height    : auto;
+    max-width : 100%;
+    max-height: 150px;
+    border    : @padding-tiny solid @text-main;
+}
+
+.modal-content {
+    .lightbox-image-container img {
+        border-radius: @padding-tiny;
+    }
+
+    .lightbox-navigation {
+        padding    : @padding-tiny 0;
+        color      : @bg-main;
+        text-shadow: none;
+
+        a {
+            color      : @bg-main;
+            text-shadow: none;
+
+            &:hover {
+                color     : @text-muted;
+                background: none;
+            }
+        }
+    }
+}

@@ -35,6 +35,9 @@ module.exports = {
 			'node_modules/angular-toarrayfilter/toArrayFilter.js',
 			'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',
 			'node_modules/angular-ui-router/release/angular-ui-router.js',
+			'node_modules/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.js',
+			'node_modules/ngtouch/build/ngTouch.min.js',
+			'node_modules/videogular/videogular.js',
 			'node_modules/fastclick/lib/fastclick.js'
 		],
 		assets: [

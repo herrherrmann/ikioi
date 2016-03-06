@@ -1,28 +1,34 @@
 @animation-time: 1s;
 
-.view-frame.ng-enter,
-.view-frame.ng-leave {
-    background: @bg-main;
-    // position  : absolute;
-    // top       : 0;
-    // left      : 0;
-    // right     : 0;
-}
+.view-frame {
+    &-container {
+        position: relative;
+    }
 
-.view-frame.ng-enter {
-    -webkit-animation: @animation-time fade-in;
-    -moz-animation   : @animation-time fade-in;
-    -o-animation     : @animation-time fade-in;
-    animation        : @animation-time fade-in;
-    z-index          : 100;
-}
+    &.ng-enter,
+    &.ng-leave {
+        // background: @bg-main;
+        position: absolute;
+        top     : 0;
+        left    : 0;
+        right   : 0;
+    }
 
-.view-frame.ng-leave {
-    -webkit-animation: @animation-time fade-out;
-    -moz-animation   : @animation-time fade-out;
-    -o-animation     : @animation-time fade-out;
-    animation        : @animation-time fade-out;
-    z-index          : 99;
+    &.ng-enter {
+        -webkit-animation: @animation-time fade-in;
+        -moz-animation   : @animation-time fade-in;
+        -o-animation     : @animation-time fade-in;
+        animation        : @animation-time fade-in;
+        z-index          : 100;
+    }
+
+    &.ng-leave {
+        -webkit-animation: @animation-time fade-out;
+        -moz-animation   : @animation-time fade-out;
+        -o-animation     : @animation-time fade-out;
+        animation        : @animation-time fade-out;
+        z-index          : 99;
+    }
 }
 
 @keyframes fade-in {

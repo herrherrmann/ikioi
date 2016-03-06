@@ -1,5 +1,6 @@
 @import '../../node_modules/bootstrap/less/bootstrap.less';
 @import (inline) '../../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css';
+@import (inline) '../../node_modules/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.css';
 @import 'normalize.less';
 @import 'variables';
 @import 'general-html';
@@ -9,27 +10,13 @@
 @import '../app/start/start.less';
 @import '../app/info/info.less';
 @import '../app/live/live.less';
+@import '../app/physical/physical.less';
+@import '../app/video/video.less';
 
-#btn-player {
-    width           : 25px;
-    height          : 25px;
-    border          : none;
-    background-color: @bg-main;
-    font-size       : 14px;
-    color           : @text-main;
+.no-underline {
+    text-decoration: none !important;
 }
 
-#background-video {
-    position         : fixed;
-    top              : 50%;
-    left             : 50%;
-    min-width        : 100%;
-    min-height       : 100%;
-    width            : auto;
-    height           : auto;
-    z-index          : -5;
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform        : translateX(-50%) translateY(-50%);
-    background       : url('assets/img/killerwels-start.jpg') no-repeat;
-    background-size  : cover;
+[ng-click] {
+    cursor: pointer;
 }

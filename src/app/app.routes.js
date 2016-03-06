@@ -6,8 +6,10 @@ angular.module('ikioi')
 		.state('site', {
 			views: {
 				header: {
-					templateUrl: 'header/header.tpl.html',
-					controller: 'HeaderCtrl'
+					templateUrl: 'header/header.tpl.html'
+				},
+				video: {
+					templateUrl: 'video/video.tpl.html'
 				}
 			}
 		})
@@ -48,16 +50,6 @@ angular.module('ikioi')
 			'main@': {
 				templateUrl: 'physical/physical.tpl.html',
 				controller: 'PhysicalCtrl'
-			}
-		}
-	})
-
-	.state('site.direct', {
-		url: '/direct',
-		views: {
-			'main@': {
-				templateUrl: 'direct/direct.tpl.html',
-				controller: 'DirectCtrl'
 			}
 		}
 	});

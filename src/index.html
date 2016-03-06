@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="de" ng-app="ikioi">
+<html lang="de" ng-app="ikioi" ng-controller="IkioiCtrl">
 <head>
-	<title>勢い</title>
+	<title>{{pageTitle}}</title>
 	<base href="/">
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -50,8 +50,14 @@
 
 	<div class="container" ui-view="header"></div>
 
+	<div class="view-frame-container">
+		<div ui-view="video" class="view-frame"></div>
+	</div>
+
 	<div class="container">
-		<div ui-view="main" class="view-frame"></div>
+		<div class="view-frame-container">
+			<div ui-view="main" class="view-frame"></div>
+		</div>
 	</div>
 
 	<!-- compiled JavaScript -->
