@@ -41,15 +41,17 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat|Droid+Sans:400,700">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<% styles.forEach( function ( file ) { %>
-		<link rel="stylesheet" type="text/css" href="<%= file %>" />
+		<link rel="stylesheet" type="text/css" href="<%= file %>">
 	<% }); %>
 
 </head>
 
 <body>
 
+	<div class="container" ui-view="header"></div>
+
 	<div class="container">
-		<div ui-view></div>
+		<div ui-view="main"></div>
 	</div>
 
 	<!-- compiled JavaScript -->

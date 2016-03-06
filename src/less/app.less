@@ -4,25 +4,7 @@
 @import 'variables';
 @import 'general-html';
 @import 'layout';
-
-#header {
-    background-color: @bg-main;
-    color           : @text-main;
-    margin          : 0 @padding-normal @padding-normal 0;
-    width           : 150px;
-    height          : 150px;
-    float           : left;
-    text-align      : center;
-    vertical-align  : middle;
-    position        : relative;
-
-    h1 {
-        margin     : 0;
-        padding-top: 64px;
-        font-size  : 36px;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-}
+@import '../app/header/header.less';
 
 #btn-player {
     width           : 25px;
@@ -46,34 +28,4 @@
     transform        : translateX(-50%) translateY(-50%);
     background       : url('assets/img/killerwels-start.jpg') no-repeat;
     background-size  : cover;
-}
-
-#impressum-link {
-    a:link,
-    a:active,
-    a:focus,
-    a:visited {
-        color: @text-muted;
-    }
-
-    a:hover {
-        color: @text-muted;
-    }
-}
-
-#impressum {
-    background-color: @bg-main;
-    margin          : 0 @padding-normal;
-}
-
-.text-muted {
-    color: @text-muted;
-}
-
-.text-right {
-    text-align: right;
-}
-
-.clearfix {
-    clear: both;
 }
