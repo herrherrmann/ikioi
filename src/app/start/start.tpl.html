@@ -1,7 +1,48 @@
 <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-4">
+        <p class="play-list-mode">
+            <a ng-click="playlistMode = false" ng-class="{'active': !playlistMode}">it's on you.</a>
+            <a ng-click="playlistMode = true"  ng-class="{'active':  playlistMode}">it's on us.</a>
+        </p>
+    </div>
+</div>
 
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-        ...
+<br>
+
+<div class="row">
+
+    <div class="col-xs-12 col-sm-10 col-sm-offset-2">
+        <div class="col-xs-1" ng-repeat="song in songs">
+            <div class="song-block" ng-class="{'active': currentSong === song}" ng-click="selectSong(song)">
+                {{$index+1}}
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<br>
+
+<div class="row">
+
+    <div class="col-xs-4 col-sm-1 col-sm-offset-4">
+        <p class="text-right">
+            <button type="button" class="btn-player" ng-if="currentSong">
+                <i class="fa fa-play"></i>
+
+                <audio id="player" preload="auto">
+                    <source src="assets/audio/7-killerwelsinwildweser.mp3" type="audio/mpeg">
+                    <!-- <source src="assets/audio/7-killerwelsinwildweser.ogg" type="audio/ogg"> -->
+                </audio>
+            </button>
+        </p>
+    </div>
+
+    <div class="col-xs-8 col-sm-5">
+        <h2>{{currentSong.name}}</h2>
+        <p>
+            {{currentSong.lyrics}}
+        </p>
     </div>
 
 </div>

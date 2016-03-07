@@ -1,3 +1,14 @@
+.play-list-mode {
+    a {
+        text-decoration: underline;
+
+        &.active {
+            font-weight    : 700;
+            text-decoration: none;
+        }
+    }
+}
+
 .btn-player {
     width           : 25px;
     height          : 25px;
@@ -5,4 +16,38 @@
     background-color: @bg-main;
     font-size       : 14px;
     color           : @text-main;
+    outline         : none;
+
+    &:hover {
+        color           : @text-muted;
+        background-color: @bg-main-bright;
+        outline         : none;
+    }
+}
+
+.song-block {
+    text-align      : center;
+    color           : @text-main;
+    background-color: @bg-main;
+    width           : auto;
+    height          : auto;
+    min-width       : 50px;
+    max-width       : 100%;
+    min-height      : 50px;
+    max-height      : 100%;
+    display         : flex;
+    justify-content : center;
+    align-content   : center;
+    flex-direction  : column;
+
+    &:hover {
+        color           : @text-muted;
+        background-color: @bg-main-bright;
+    }
+
+    &.active,
+    &.active:hover {
+        color           : @text-main;
+        background-color: @bg-main-bright;
+    }
 }

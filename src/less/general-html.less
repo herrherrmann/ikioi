@@ -9,6 +9,7 @@ body {
     -webkit-font-smoothing: subpixel-antialiased;
 }
 
+a,
 a:link,
 a:active,
 a:focus,
@@ -18,9 +19,9 @@ a:visited {
 }
 
 a:hover {
-    color           : @text-main;
-    text-decoration : none;
-    background-color: @bg-main;
+    color          : @text-main;
+    text-decoration: none;
+    // background-color: @bg-main;
 }
 
 h1 {
@@ -40,7 +41,7 @@ table {
     tr {
         td {
             vertical-align: top;
-            padding       : 0 10px 0 0;
+            padding       : 0 @padding-small 0 0;
         }
     }
 }
