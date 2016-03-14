@@ -1,21 +1,18 @@
 angular.module('ikioi')
 
-.controller('IkioiCtrl', ($scope, $rootScope, $sce) => {
+.controller('IkioiCtrl', ($scope, $rootScope, $sce, $uibModalStack, backgroundVideo) => {
 
 	$rootScope.$on('$stateChangeSuccess', (event, toState, toParams, fromState, fromParams) => {
+		// Close all modals.
+		$uibModalStack.dismissAll();
+
 		$scope.currentPageName = extractAssetName(toState.name);
 
-		// Set HTML Title
+		// Set HTML Title.
 		$scope.pageTitle = '勢い | ' + $scope.currentPageName;
 
-		// Update Video URLs
-		$scope.videoURLs = [{
-			src: $sce.trustAsResourceUrl('assets/video/' + $scope.currentPageName + '.mp4'),
-			type: "video/mp4"
-		}, {
-			src: $sce.trustAsResourceUrl('assets/video/' + $scope.currentPageName + '.webm'),
-			type: "video/webm"
-		}];
+		// Update Video URLs.
+		backgroundVideo.setBackgroundVideo($scope.currentPageName);
 
 	});
 

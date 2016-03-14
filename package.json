@@ -57,6 +57,7 @@
 		"browser-sync": "^2.11.1",
 		"del": "^2.2.0",
 		"fastclick": "^1.0.6",
+		"font-awesome": "^4.5.0",
 		"gulp-minify-html": "^1.0.5",
 		"gulp-ng-html2js": "^0.2.2",
 		"gulp-s3-upload": "^1.5.1",

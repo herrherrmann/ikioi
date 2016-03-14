@@ -45,7 +45,12 @@ module.exports = {
 			'node_modules/bootstrap/fonts/glyphicons-halflings-regular.svg',
 			'node_modules/bootstrap/fonts/glyphicons-halflings-regular.ttf',
 			'node_modules/bootstrap/fonts/glyphicons-halflings-regular.woff',
-			'node_modules/bootstrap/fonts/glyphicons-halflings-regular.woff2'
+			'node_modules/bootstrap/fonts/glyphicons-halflings-regular.woff2',
+			'node_modules/font-awesome/fonts/fontawesome-webfont.eot',
+			'node_modules/font-awesome/fonts/fontawesome-webfont.svg',
+			'node_modules/font-awesome/fonts/fontawesome-webfont.ttf',
+			'node_modules/font-awesome/fonts/fontawesome-webfont.woff',
+			'node_modules/font-awesome/fonts/fontawesome-webfont.woff2'
 		],
 		css: []
 	}

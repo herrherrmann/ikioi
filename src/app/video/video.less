@@ -1,13 +1,17 @@
 #background-video {
-    z-index        : -5;
-    background     : url('assets/img/stills/start.jpg') no-repeat; // TODO: Make dynamic.
-    background-size: cover;
+    z-index          : -5;
+    background-repeat: no-repeat;
+    background-size  : cover;
 }
 
 /* Mobile */
 @media screen and (max-device-width: 800px) {
     body {
-        background: url('assets/img/stills/start-mobile.jpg') #000 no-repeat center center fixed;
+        background-image     : url('assets/img/stills/start-mobile.jpg');
+        background-color     : @bg-main;
+        background-repeat    : no-repeat;
+        background-position  : center center;
+        background-attachment: fixed;
     }
 
     #background-video {

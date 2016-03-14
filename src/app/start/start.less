@@ -1,7 +1,5 @@
 .play-list-mode {
     a {
-        text-decoration: underline;
-
         &.active {
             font-weight    : 700;
             text-decoration: none;
@@ -25,29 +23,45 @@
     }
 }
 
-.song-block {
-    text-align      : center;
-    color           : @text-main;
-    background-color: @bg-main;
-    width           : auto;
-    height          : auto;
-    min-width       : 50px;
-    max-width       : 100%;
-    min-height      : 50px;
-    max-height      : 100%;
-    display         : flex;
-    justify-content : center;
-    align-content   : center;
-    flex-direction  : column;
+.songs {
+    display       : flex;
+    flex-direction: row;
 
-    &:hover {
-        color           : @text-muted;
-        background-color: @bg-main-bright;
-    }
+    .song {
+        display       : flex;
+        flex-direction: column;
+        flex          : 1 1 auto;
 
-    &.active,
-    &.active:hover {
-        color           : @text-main;
-        background-color: @bg-main-bright;
+        .song-block {
+            text-align      : center;
+            color           : @text-main;
+            background-color: @bg-main;
+            width           : 50px;
+            height          : 50px;
+            position        : relative;
+            display         : flex;
+            flex-direction  : column;
+            justify-content : center;
+            align-content   : center;
+
+            &:hover {
+                color           : @text-muted;
+                background-color: @bg-main-bright;
+            }
+
+            &.active,
+            &.active:hover {
+                color           : @text-main;
+                background-color: @bg-main-bright;
+            }
+
+            .song-progress {
+                background-color: @text-main;
+                opacity         : 0.1;
+                height          : 50px;
+                position        : absolute;
+                top             : 0;
+            }
+        }
     }
 }
