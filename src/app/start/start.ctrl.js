@@ -137,6 +137,8 @@ Es ist ein schöner Tag`
 		if($scope.playlistMode && !force) {
 			return false;
 		}
+		pause();
+		resetPercentages();
 		$scope.currentSong = song;
 		$timeout(() => {
 			backgroundVideo.setBackgroundVideo(song.resource);
@@ -159,7 +161,7 @@ Es ist ein schöner Tag`
 
 		// Update percentage while playing:
 		player.addEventListener('timeupdate', () => {
-			song.percentage = Number((player.currentTime / player.duration) * 100);
+			updateSongProgress(song, player);
 		}, false);
 
 		// Play next Song (if available).
@@ -174,6 +176,13 @@ Es ist ein schöner Tag`
 
 	}
 
+	function updateSongProgress(song, player) {
+		song.percentage = Number((player.currentTime / player.duration) * 100);
+		if(song.percentage >= 100) {
+			player.removeEventListener('timeupdate');
+		}
+	}
+
 	function pause() {
 		let player = document.getElementById('audio-player');
 		player.pause();
@@ -184,8 +193,6 @@ Es ist ein schöner Tag`
 	 * Set the player sources (mp3 + ogg), load the song and return true if there was a (song) change.
 	 */
 	function setPlayerSource(song) {
-		resetPercentages();
-		pause();
 		let player = document.getElementById('audio-player');
 		let sources = {
 			mp3Source: document.getElementById('mp3-source'),

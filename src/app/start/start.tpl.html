@@ -16,7 +16,10 @@
             <div class="song" ng-repeat="song in songs">
                 <div class="song-block" ng-click="selectSong(song)" ng-class="{'active': currentSong === song}">
                     {{$index+1}}
-                    <div class="song-progress" ng-style="{'width': song.percentage + '%'}"></div>
+                    <div class="song-progress"
+                        ng-if="currentSong === song"
+                        ng-style="{'width': song.percentage + '%'}">
+                    </div>
                 </div>
             </div>
         </div>
