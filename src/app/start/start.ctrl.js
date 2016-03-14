@@ -162,16 +162,14 @@ Es ist ein schöner Tag`
 			song.percentage = Number((player.currentTime / player.duration) * 100);
 		}, false);
 
-		// Return to default state when song has ended:
+		// Play next Song (if available).
 		player.addEventListener('ended', (end) => {
 			song.percentage = 0;
 			pause();
-			// if($scope.playlistMode) {
 			const nextIndex = song.index + 1;
 			if(nextIndex < $scope.songs.length - 1) {
 				selectSong($scope.songs[nextIndex], true);
 			}
-			// }
 		}, false);
 
 	}
