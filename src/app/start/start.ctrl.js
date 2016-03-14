@@ -33,7 +33,7 @@ Also, ich meine, kontraproduktive Faktoren sind Freunde`
 		name: 'Apollo Nölf',
 		index: 1,
 		icon: '',
-		resource: '2-apollonölf',
+		resource: '2-apollonoelf',
 		lyrics: `Wann immer ich kann, bin ich der Unruhestifter auf dem Mond<br>
 Ich nehme meine lautesten Instrumente und springe meterhoch ins Vakuum<br>
 Und dort stifte ich dann Unruhe<br>
