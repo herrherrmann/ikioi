@@ -27,8 +27,8 @@
         </div>
 
         <div class="row lightbox-navigation" ng-if="Lightbox.images.length > 1">
-            <div class="col-xs-4">
-                <a ng-click="Lightbox.prevImage()">
+            <div class="col-xs-4 text-left">
+                <a ng-click="Lightbox.prevImage()" class="no-underline">
                     ‹ Previous
                 </a>
             </div>
@@ -36,7 +36,7 @@
                 {{Lightbox.image.index + 1}} / {{Lightbox.images.length}}
             </div>
             <div class="col-xs-4 text-right">
-                <a ng-click="Lightbox.nextImage()">
+                <a ng-click="Lightbox.nextImage()" class="no-underline">
                     Next ›
                 </a>
             </div>
