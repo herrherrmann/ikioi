@@ -137,20 +137,23 @@ Es ist ein schöner Tag`
 		if($scope.playlistMode && !force) {
 			return false;
 		}
-		pause();
-		resetPercentages();
-		$scope.currentSong = song;
-		$timeout(() => {
-			backgroundVideo.setBackgroundVideo(song.resource);
-			setPlayerSource(song);
-			play(song, force);
-		});
+		if($scope.currentSong !== song) {
+			// Select new song.
+			pause();
+			resetPercentages();
+			$scope.currentSong = song;
+			$timeout(() => {
+				backgroundVideo.setBackgroundVideo(song.resource);
+				setPlayerSource(song);
+				play(song);
+			});
+		} else {
+			// Same song --> just toggle play/pause.
+			play(song);
+		}
 	}
 
-	function play(song, force) {
-		if($scope.playlistMode && !force) {
-			return false;
-		}
+	function play(song) {
 		let player = document.getElementById('audio-player');
 		if(player.paused) {
 			player.play();
