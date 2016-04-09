@@ -1,9 +1,9 @@
 <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-2">
-        <p class="play-list-mode text-center">
-            <a ng-click="setPlaylistMode(false)" ng-class="{'active': !playlistMode && playlistModeSelected}">it's on you.</a>
-            <a ng-click="setPlaylistMode(true)"  ng-class="{'active':  playlistMode && playlistModeSelected}">it's on us.</a>
-        </p>
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 play-list-mode text-center">
+        <a ng-click="setPlaylistMode(false)" ng-class="{'active': !playlistMode && playlistModeSelected}">it's on you.</a>
+        <div ng-click="setPlaylistMode(!playlistMode)" class="play-list-mode-switcher" ng-class="{'active': !playlistMode && playlistModeSelected}"></div>
+        <div ng-click="setPlaylistMode(!playlistMode)" class="play-list-mode-switcher" ng-class="{'active':  playlistMode && playlistModeSelected}"></div>
+        <a ng-click="setPlaylistMode(true)"  ng-class="{'active':  playlistMode && playlistModeSelected}">it's on us.</a>
     </div>
 </div>
 

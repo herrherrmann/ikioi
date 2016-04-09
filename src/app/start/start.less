@@ -5,6 +5,36 @@
             text-decoration: none;
         }
     }
+
+    &-switcher {
+        display  : inline-block;
+        width    : 15px;
+        min-width: 15px;
+        height   : 15px;
+        border   : 1px solid @text-main;
+
+        &:nth-of-type(0n+1) {
+            margin-left: @padding-small;
+        }
+
+        &:nth-of-type(0n+2) {
+            margin-right: @padding-small;
+        }
+
+        &:hover {
+            border-color    : @text-muted;
+            background-color: @bg-main-bright;
+        }
+
+        &.active {
+            background-color: @text-main;
+
+            &:hover {
+                background-color: @text-main;
+                border-color    : @text-main;
+            }
+        }
+    }
 }
 
 .btn-player {
