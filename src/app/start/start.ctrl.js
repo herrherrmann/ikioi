@@ -134,6 +134,7 @@ Es ist ein schöner Tag`
 	}
 
 	function selectSong(song, force) {
+		// Prevent manual song selection in playlist mode.
 		if($scope.playlistMode && !force) {
 			return false;
 		}
@@ -158,25 +159,23 @@ Es ist ein schöner Tag`
 		if(player.paused) {
 			player.play();
 			$scope.isPlaying = true;
+			// Update percentage while playing:
+			player.addEventListener('timeupdate', () => {
+				updateSongProgress(song, player);
+			}, false);
+
+			// Play next Song (if available).
+			player.addEventListener('ended', (end) => {
+				song.percentage = 0;
+				pause();
+				const nextIndex = song.index + 1;
+				if(nextIndex < $scope.songs.length - 1) {
+					selectSong($scope.songs[nextIndex], true);
+				}
+			}, false);
 		} else {
 			pause();
 		}
-
-		// Update percentage while playing:
-		player.addEventListener('timeupdate', () => {
-			updateSongProgress(song, player);
-		}, false);
-
-		// Play next Song (if available).
-		player.addEventListener('ended', (end) => {
-			song.percentage = 0;
-			pause();
-			const nextIndex = song.index + 1;
-			if(nextIndex < $scope.songs.length - 1) {
-				selectSong($scope.songs[nextIndex], true);
-			}
-		}, false);
-
 	}
 
 	function updateSongProgress(song, player) {
