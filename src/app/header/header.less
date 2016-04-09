@@ -1,17 +1,9 @@
-@media screen and (max-width: 800px) {
-    #header-block {
-        float: none;
-        width: 100%;
-    }
-}
-
 #header-block {
     color           : @text-main;
     background-color: @bg-main;
-    margin          : 0 @padding-normal @padding-small 0;
+    margin          : @padding-normal @padding-normal @padding-small 0;
     width           : 150px;
     height          : 150px;
-    float           : left;
     text-align      : center;
     vertical-align  : middle;
     position        : relative;
@@ -36,12 +28,10 @@
     z-index   : 1000;
 
     a,
-    a:link,
     a:active,
     a:focus,
+    a:link,
     a:visited {
-        // color          : @text-main;
-        // text-decoration: underline;
         margin     : @padding-normal @padding-normal 0 0;
         line-height: 2em;
     }
@@ -49,10 +39,5 @@
     a.active {
         text-decoration: none;
         font-weight    : 700;
-    }
-
-    a:hover {
-        // color          : @text-main;
-        // text-decoration: none;
     }
 }

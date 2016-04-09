@@ -1,5 +1,5 @@
-html,
-body {
+body,
+html {
     color                 : @text-main;
     text-shadow           : 1px 1px 1px @bg-main;
     font-family           : 'Montserrat', Arial, sans-serif;
@@ -9,19 +9,21 @@ body {
     -webkit-font-smoothing: subpixel-antialiased;
 }
 
-a,
-a:link,
-a:active,
-a:focus,
-a:visited {
-    color          : @text-main;
-    text-decoration: underline;
-}
+a {
+    &,
+    &:active,
+    &:focus,
+    &:link,
+    &:visited {
+        color          : @text-main;
+        text-decoration: underline;
 
-a:hover {
-    color          : @text-main;
-    text-decoration: none;
-    // background-color: @bg-main;
+    }
+
+    &:hover {
+        color          : @text-main;
+        text-decoration: none;
+    }
 }
 
 h1 {
@@ -35,6 +37,10 @@ h2 {
     font-size      : @text-size-normal;
     margin         : 0.5em 0;
     text-decoration: underline;
+}
+
+hr {
+    border-color: @text-muted;
 }
 
 table {
