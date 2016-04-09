@@ -20,17 +20,24 @@ angular.module('ikioi')
 		url: 'assets/img/shop/disc-5.jpg'
 	}, {
 		url: 'assets/img/shop/disc-6.jpg'
-	}, {
-		url: 'assets/img/shop/disc-7.jpg'
 	}];
 
 	$scope.images.poster = [{
-		url: 'assets/img/shop/poster.jpg'
+		url: 'assets/img/shop/poster-1.jpg'
+	}, {
+		url: 'assets/img/shop/poster-2.jpg'
+	}, {
+		url: 'assets/img/shop/poster-3.jpg'
 	}];
 
-	angular.forEach($scope.images.disc, (image, index) => {
-		image.index = index;
-	});
+	function generateIndices() {
+		angular.forEach($scope.images, (imageSet) => {
+			angular.forEach(imageSet, (image, index) => {
+				image.index = index;
+			});
+		});
+	}
+	generateIndices();
 
 	function openModal(name) {
 		Lightbox.openModal($scope.images[name], 0);

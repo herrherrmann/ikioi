@@ -1,12 +1,11 @@
 <div class="modal-body" ng-swipe-left="Lightbox.nextImage()" ng-swipe-right="Lightbox.prevImage()">
-    <!-- navigation -->
     <div class="lightbox-nav">
-        <!-- close button -->
-        <button class="close" aria-hidden="true" ng-click="$dismiss()">×</button>
+        <button class="close" aria-hidden="true" ng-click="$dismiss()">
+            ×
+        </button>
     </div>
 
     <div class="lightbox-image-container">
-        <!-- caption -->
         <div class="lightbox-image-caption">
             <span>{{Lightbox.imageCaption}}</span>
         </div>
@@ -33,14 +32,13 @@
                 </a>
             </div>
             <div class="col-xs-4 text-center">
-                {{Lightbox.image.index + 1}} / {{Lightbox.images.length}}
+                {{Lightbox.image.index + 1}} / {{::Lightbox.images.length}}
             </div>
             <div class="col-xs-4 text-right">
                 <a ng-click="Lightbox.nextImage()" class="no-underline">
                     Next ›
                 </a>
             </div>
-
         </div>
     </div>
 </div>
