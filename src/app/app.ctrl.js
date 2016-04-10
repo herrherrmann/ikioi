@@ -5,7 +5,6 @@ angular.module('ikioi')
 	$rootScope.$on('$stateChangeSuccess', (event, toState, toParams, fromState, fromParams) => {
 		// Close all modals.
 		$uibModalStack.dismissAll();
-
 		const currentPageName = extractAssetName(toState.name);
 		setPageTitle(currentPageName);
 		backgroundVideo.setBackgroundVideo(currentPageName);
@@ -13,7 +12,13 @@ angular.module('ikioi')
 	});
 
 	function extractAssetName(stateName) {
-		return stateName.substr(5); // remove 'site.'
+		const assetName = stateName.substr(5); // remove 'site.'
+		switch(assetName) {
+			case 'impressum':
+				return 'start';
+			default:
+				return assetName;
+		}
 	}
 
 	function setPageTitle(title) {

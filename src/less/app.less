@@ -4,8 +4,6 @@
 @import (inline) '../../node_modules/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.css';
 @import 'normalize.less';
 @import 'variables';
-@import 'general-html';
-@import 'layout';
 @import 'animations';
 @import '../app/header/header.less';
 @import '../app/start/start.less';
@@ -13,6 +11,65 @@
 @import '../app/live/live.less';
 @import '../app/physical/physical.less';
 @import '../app/video/video.less';
+
+body,
+html {
+    width                 : 100%;
+    height                : 100vh;
+    color                 : @text-main;
+    text-shadow           : 1px 1px 1px @bg-main;
+    font-family           : 'Montserrat', Arial, sans-serif;
+    font-size             : @text-size-normal;
+    letter-spacing        : 0.1em;
+    line-height           : 1.5em;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+a {
+    &,
+    &:active,
+    &:focus,
+    &:link,
+    &:visited {
+        color          : @text-main;
+        text-decoration: underline;
+    }
+
+    &:hover {
+        color          : @text-main;
+        text-decoration: none;
+    }
+}
+
+h1 {
+    font-weight    : normal;
+    font-size      : @text-size-normal;
+    text-decoration: underline;
+}
+
+h2 {
+    font-weight    : normal;
+    font-size      : @text-size-normal;
+    margin         : 0.5em 0;
+    text-decoration: underline;
+}
+
+hr {
+    border-color: @text-muted;
+}
+
+table {
+    tr {
+        td {
+            vertical-align: top;
+            padding       : 0 @padding-small 0 0;
+        }
+    }
+}
+
+video {
+    display: block; // for IE8
+}
 
 .no-underline {
     text-decoration: none !important;

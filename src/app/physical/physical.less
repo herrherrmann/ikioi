@@ -1,9 +1,10 @@
 .physical-item {
-    width     : auto;
-    height    : auto;
-    max-width : 100%;
-    max-height: 150px;
-    border    : @padding-tiny solid @text-main;
+    width        : auto;
+    height       : auto;
+    max-width    : 100%;
+    max-height   : 150px;
+    border       : @padding-tiny solid @text-main;
+    margin-bottom: @padding-tiny;
 }
 
 .modal-content {
@@ -20,11 +21,15 @@
         text-shadow: none;
 
         a {
-            color      : @bg-main;
-            text-shadow: none;
+            &,
+            &:active,
+            &:focus {
+                color      : @bg-main;
+                text-shadow: none;
+            }
 
             &:hover {
-                color     : @text-muted;
+                color     : @bg-main-bright;
                 background: none;
             }
         }

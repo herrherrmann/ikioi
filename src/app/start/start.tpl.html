@@ -1,8 +1,8 @@
 <div class="row">
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2 play-list-mode text-center">
+    <div class="col-xs-12 col-sm-7 col-sm-offset-3 col-lg-8 col-lg-offset-2 play-list-mode text-center">
         <a ng-click="setPlaylistMode(false)" ng-class="{'active': !playlistMode && playlistModeSelected}">it's on you.</a>
-        <div ng-click="setPlaylistMode(!playlistMode)" class="play-list-mode-switcher" ng-class="{'active': !playlistMode && playlistModeSelected}"></div>
-        <div ng-click="setPlaylistMode(!playlistMode)" class="play-list-mode-switcher" ng-class="{'active':  playlistMode && playlistModeSelected}"></div>
+        <div ng-click="setPlaylistMode(playlistModeSelected ? !playlistMode : false)" class="play-list-mode-switcher" ng-class="{'active': !playlistMode && playlistModeSelected}"></div>
+        <div ng-click="setPlaylistMode(playlistModeSelected ? !playlistMode : true)"  class="play-list-mode-switcher" ng-class="{'active':  playlistMode && playlistModeSelected}"></div>
         <a ng-click="setPlaylistMode(true)"  ng-class="{'active':  playlistMode && playlistModeSelected}">it's on us.</a>
     </div>
 </div>
@@ -11,11 +11,16 @@
 
 <div class="row" uib-collapse="!playlistModeSelected">
 
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+    <div class="col-xs-12 col-sm-7 col-sm-offset-3 col-lg-8 col-lg-offset-2">
         <div class="songs">
             <div class="song" ng-repeat="song in songs">
-                <div class="song-block" ng-click="selectSong(song)" ng-class="{'active': currentSong === song}">
-                    {{$index+1}}
+                <div class="song-block"
+                    ng-click="selectSong(song)"
+                    ng-style="{'background-position': ($index * -50) + 'px 50%'}"
+                    ng-class="{
+                        'active': currentSong === song,
+                        'disabled': playlistMode
+                    }">
                     <div class="song-progress"
                         ng-if="currentSong === song"
                         ng-style="{'width': song.percentage + '%'}">
@@ -31,8 +36,8 @@
 
 <div class="row" uib-collapse="!playlistModeSelected || !currentSong">
 
-    <div class="col-xs-2 col-sm-1 col-sm-offset-3">
-        <button type="button" id="btn-player" class="btn-player pull-right" ng-click="play(currentSong)">
+    <div class="col-xs-2 col-sm-2 col-sm-offset-3 col-lg-1 col-lg-offset-2">
+        <button type="button" class="btn-player pull-right" ng-click="play(currentSong)">
             <i class="fa" ng-class="{'fa-play': !isPlaying, 'fa-pause': isPlaying}"></i>
         </button>
         <audio id="audio-player" preload="auto">
@@ -41,7 +46,7 @@
         </audio>
     </div>
 
-    <div class="col-xs-10 col-sm-8">
+    <div class="col-xs-10 col-sm-7 col-lg-8">
         <h2>{{currentSong.name}}</h2>
         <p ng-bind-html="currentSong.lyrics"></p>
     </div>

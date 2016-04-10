@@ -7,14 +7,16 @@
     }
 
     &-switcher {
-        display  : inline-block;
-        width    : 15px;
-        min-width: 15px;
-        height   : 15px;
-        border   : 1px solid @text-main;
+        display      : inline-block;
+        width        : 20px;
+        height       : 12px;
+        border       : 1px solid @text-main;
+        box-shadow   : 1px 1px 2px 0 rgba(0,0,0,0.65);
+        margin-bottom: -2px;
 
         &:nth-of-type(0n+1) {
-            margin-left: @padding-small;
+            margin-left       : @padding-small;
+            border-right-width: 0;
         }
 
         &:nth-of-type(0n+2) {
@@ -22,32 +24,31 @@
         }
 
         &:hover {
-            border-color    : @text-muted;
-            background-color: @bg-main-bright;
+            background-color: rgba(255,255,255,0.2);
         }
 
-        &.active {
+        &.active,
+        &.active:hover {
             background-color: @text-main;
-
-            &:hover {
-                background-color: @text-main;
-                border-color    : @text-main;
-            }
+            border-color    : @text-main;
         }
     }
 }
 
 .btn-player {
-    width           : 25px;
-    height          : 25px;
-    border          : none;
-    background-color: @bg-main;
-    font-size       : 14px;
-    color           : @text-main;
-    outline         : none;
+    &,
+    &:active {
+        width           : 30px;
+        height          : 30px;
+        border          : none;
+        background-color: @bg-main;
+        font-size       : 1.2em;
+        color           : @text-main;
+        outline         : none;
+    }
 
     &:hover {
-        color           : @text-muted;
+        color           : @text-main;
         background-color: @bg-main-bright;
         outline         : none;
     }
@@ -56,15 +57,22 @@
 .songs {
     display       : flex;
     flex-direction: row;
+    width         : auto;
+    overflow-x    : scroll;
+    // overflow-y: hidden;
 
     .song {
         display       : flex;
         flex-direction: column;
         flex          : 1 1 auto;
+        min-width     : 50px + 10px;
 
         .song-block {
+            // opacity         : 0.5;
+            // color           : @text-main;
+            background-image: url('assets/img/song-icons.png');
+            background-size : 350px 50px;
             text-align      : center;
-            color           : @text-main;
             background-color: @bg-main;
             width           : 50px;
             height          : 50px;
@@ -74,13 +82,18 @@
             justify-content : center;
             align-content   : center;
 
-            &:hover {
+            &.disabled {
+                opacity: 0.5;
+            }
+
+            &:hover:not(.disabled) {
                 color           : @text-muted;
                 background-color: @bg-main-bright;
             }
 
             &.active,
             &.active:hover {
+                opacity         : 1.0;
                 color           : @text-main;
                 background-color: @bg-main-bright;
             }

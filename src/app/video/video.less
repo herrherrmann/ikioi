@@ -5,21 +5,6 @@
     background-size  : cover;
 }
 
-/* Mobile */
-@media screen and (max-device-width: 800px) {
-    body {
-        background-image     : url('assets/img/stills/start-mobile.jpg');
-        background-color     : @bg-main;
-        background-repeat    : no-repeat;
-        background-position  : center center;
-        background-attachment: fixed;
-    }
-
-    #background-video {
-        display: none;
-    }
-}
-
 .background-video {
     position         : fixed;
     top              : 50%;
@@ -35,5 +20,20 @@
 videogular {
     video {
         .background-video;
+    }
+}
+
+/* Mobile */
+@media screen and (max-device-width: 800px) {
+    #background-video {
+        background-repeat  : no-repeat;
+        background-position: center center;
+        background-size    : cover;
+        // background-attachment: fixed;
+
+        // Hide video div.
+        .view-frame {
+            display: none;
+        }
     }
 }

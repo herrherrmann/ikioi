@@ -52,6 +52,15 @@ angular.module('ikioi')
 				controller: 'PhysicalCtrl'
 			}
 		}
+	})
+
+	.state('site.impressum', {
+		url: '/impressum',
+		views: {
+			'main@': {
+				templateUrl: 'impressum/impressum.tpl.html'
+			}
+		}
 	});
 
 });
