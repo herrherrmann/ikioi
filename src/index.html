@@ -55,11 +55,9 @@
 		</div>
 	</div>
 
-	<div class="desktop-only animation-frame-container full-screen" id="background-video">
+	<div class="animation-frame-container full-screen" id="background-video">
 		<div ui-view="video" class="animation-frame full-screen" ng-animate="'transition'"></div>
 	</div>
-
-	<div class="mobile-only full-screen" id="background-video-poster" ng-style="{'background-image': 'url(\''+backgroundVideo.posterURL+'\')'}"></div>
 
 	<!-- compiled JavaScript -->
 	<% scripts.forEach( function ( file ) { %>

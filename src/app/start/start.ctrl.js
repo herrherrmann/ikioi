@@ -1,6 +1,6 @@
 angular.module('ikioi')
 
-.controller('StartCtrl', ($scope, $timeout, backgroundVideo) => {
+.controller('StartCtrl', ($scope, $rootScope, $timeout) => {
 	$scope.setPlaylistMode = setPlaylistMode;
 	$scope.selectSong = selectSong;
 	$scope.playPause = playPause;
@@ -149,7 +149,7 @@ Es ist ein schöner Tag`
 			pause();
 			$scope.currentSong = song;
 			$timeout(() => {
-				backgroundVideo.setBackgroundVideo($scope.currentSong.resource);
+				$rootScope.$broadcast('changeBackgroundVideo', $scope.currentSong.resource);
 				setPlayerSource($scope.currentSong);
 				initializePlayer();
 			});
