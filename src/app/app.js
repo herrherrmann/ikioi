@@ -1,7 +1,6 @@
 angular.module('ikioi', [
 	'ui.router',
 	'ui.bootstrap',
-	'angular-toArrayFilter',
 	'ngAnimate',
 	'ngSanitize',
 	'ngTouch',
