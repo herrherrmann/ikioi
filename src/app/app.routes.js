@@ -5,12 +5,13 @@ angular.module('ikioi')
 	$stateProvider
 		.state('site', {
 			views: {
-				header: {
+				'header@': {
 					templateUrl: 'header/header.tpl.html'
-				},
-				video: {
-					templateUrl: 'video/video.tpl.html'
 				}
+				// video: {
+				// 	templateUrl: 'video/video.tpl.html',
+				// 	controller: 'VideoCtrl'
+				// }
 			}
 		})
 
@@ -20,6 +21,10 @@ angular.module('ikioi')
 			'main@': {
 				templateUrl: 'start/start.tpl.html',
 				controller: 'StartCtrl'
+			},
+			'video@': {
+				templateUrl: 'video/video.tpl.html',
+				controller: 'VideoCtrl'
 			}
 		}
 	})
@@ -30,6 +35,10 @@ angular.module('ikioi')
 			'main@': {
 				templateUrl: 'info/info.tpl.html',
 				controller: 'InfoCtrl'
+			},
+			'video@': {
+				templateUrl: 'video/video.tpl.html',
+				controller: 'VideoCtrl'
 			}
 		}
 	})
@@ -40,6 +49,10 @@ angular.module('ikioi')
 			'main@': {
 				templateUrl: 'live/live.tpl.html',
 				controller: 'LiveCtrl'
+			},
+			'video@': {
+				templateUrl: 'video/video.tpl.html',
+				controller: 'VideoCtrl'
 			}
 		}
 	})
@@ -50,6 +63,10 @@ angular.module('ikioi')
 			'main@': {
 				templateUrl: 'physical/physical.tpl.html',
 				controller: 'PhysicalCtrl'
+			},
+			'video@': {
+				templateUrl: 'video/video.tpl.html',
+				controller: 'VideoCtrl'
 			}
 		}
 	})
@@ -59,6 +76,10 @@ angular.module('ikioi')
 		views: {
 			'main@': {
 				templateUrl: 'impressum/impressum.tpl.html'
+			},
+			'video@': {
+				templateUrl: 'video/video.tpl.html',
+				controller: 'VideoCtrl'
 			}
 		}
 	});

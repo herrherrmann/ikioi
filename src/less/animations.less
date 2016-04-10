@@ -1,36 +1,43 @@
-@animation-time: 0.5s;
+@animation-time: 0.8s;
 
-.view-frame {
-    &-container {
-        position: relative;
-    }
+.animation-frame-container {
+    position: relative;
 
-    &.ng-enter,
-    &.ng-leave {
-        // background: @bg-main;
-        position: absolute;
-        top     : 0;
-        left    : 0;
-        right   : 0;
-    }
+    .animation-frame {
+        &.ng-enter,
+        &.ng-leave {
+            // background: @bg-main;
+            position: absolute;
+            top     : 0;
+            left    : 0;
+            right   : 0;
+        }
 
-    &.ng-enter {
-        -webkit-animation: @animation-time fade-in;
-        -moz-animation   : @animation-time fade-in;
-        -o-animation     : @animation-time fade-in;
-        animation        : @animation-time fade-in;
-        z-index          : 100;
-    }
+        &.ng-enter.full-screen,
+        &.ng-leave.full-screen {
+            top : 50%;
+            left: 50%;
+        }
 
-    &.ng-leave {
-        -webkit-animation: @animation-time fade-out;
-        -moz-animation   : @animation-time fade-out;
-        -o-animation     : @animation-time fade-out;
-        animation        : @animation-time fade-out;
-        z-index          : 99;
+        &.ng-enter {
+            -webkit-animation: @animation-time fade-in;
+            -moz-animation   : @animation-time fade-in;
+            -o-animation     : @animation-time fade-in;
+            animation        : @animation-time fade-in;
+            z-index          : 100;
+        }
+
+        &.ng-leave {
+            -webkit-animation: @animation-time fade-out;
+            -moz-animation   : @animation-time fade-out;
+            -o-animation     : @animation-time fade-out;
+            animation        : @animation-time fade-out;
+            z-index          : 99;
+        }
     }
 }
 
+// Keyframes
 @keyframes fade-in {
     from {
         opacity: 0;
@@ -40,7 +47,6 @@
         opacity: 1;
     }
 }
-
 @-moz-keyframes fade-in {
     from {
         opacity: 0;
@@ -50,7 +56,6 @@
         opacity: 1;
     }
 }
-
 @-webkit-keyframes fade-in {
     from {
         opacity: 0;
@@ -60,7 +65,6 @@
         opacity: 1;
     }
 }
-
 @keyframes fade-out {
     from {
         opacity: 1;
@@ -70,7 +74,6 @@
         opacity: 0;
     }
 }
-
 @-moz-keyframes fade-out {
     from {
         opacity: 1;
@@ -80,7 +83,6 @@
         opacity: 0;
     }
 }
-
 @-webkit-keyframes fade-out {
     from {
         opacity: 1;

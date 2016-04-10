@@ -25,6 +25,10 @@ html {
     -webkit-font-smoothing: subpixel-antialiased;
 }
 
+body {
+    background-color: @bg-main;
+}
+
 a {
     &,
     &:active,
@@ -78,4 +82,26 @@ video {
 [ng-click],
 [ui-sref] {
     cursor: pointer;
+}
+
+/* Desktop */
+@media screen and (min-device-width: 801px) {
+    .mobile-only {
+        display: none;
+    }
+
+    .desktop-only {
+        display: block;
+    }
+}
+
+/* Mobile */
+@media screen and (max-device-width: 800px) {
+    .mobile-only {
+        display: block;
+    }
+
+    .desktop-only {
+        display: none;
+    }
 }

@@ -10,7 +10,6 @@ angular.module('ikioi')
 	$scope.playlistMode = false;
 	$scope.playlistModeSelected = false;
 	$scope.currentSong = null;
-	$scope.isPlaying = false;
 	$scope.isLoading = false;
 
 	$scope.songs = [{
@@ -117,6 +116,7 @@ Es ist ein schöner Tag`
 		resetPercentages();
 		$timeout(() => {
 			player = document.getElementById('audio-player');
+			$scope.player = player;
 		});
 	}
 	initialize();
@@ -164,7 +164,6 @@ Es ist ein schöner Tag`
 			play();
 		},
 		onWaiting: () => {
-			$scope.isPlaying = false;
 			$scope.isLoading = true;
 		},
 		onTimeupdate: () => {
@@ -223,13 +222,11 @@ Es ist ein schöner Tag`
 
 	function play() {
 		player.play();
-		$scope.isPlaying = true;
 		$scope.isLoading = false;
 	}
 
 	function pause() {
 		player.pause();
-		$scope.isPlaying = false;
 		$scope.isLoading = false;
 	}
 

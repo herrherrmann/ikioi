@@ -1,8 +1,9 @@
 <div class="modal-body" ng-swipe-left="Lightbox.nextImage()" ng-swipe-right="Lightbox.prevImage()">
-    <div class="lightbox-nav">
+    <div class="lightbox-header">
         <button class="close" aria-hidden="true" ng-click="$dismiss()">
             ×
         </button>
+        <div class="clearfix"></div>
     </div>
 
     <div class="lightbox-image-container">
@@ -26,16 +27,16 @@
         </div>
 
         <div class="row lightbox-navigation" ng-if="Lightbox.images.length > 1">
-            <div class="col-xs-4 text-left">
-                <a ng-click="Lightbox.prevImage()" class="no-underline">
+            <div class="col-xs-4 text-left" ng-click="Lightbox.prevImage()">
+                <a class="no-underline">
                     ‹ Previous
                 </a>
             </div>
             <div class="col-xs-4 text-center">
                 {{Lightbox.image.index + 1}} / {{::Lightbox.images.length}}
             </div>
-            <div class="col-xs-4 text-right">
-                <a ng-click="Lightbox.nextImage()" class="no-underline">
+            <div class="col-xs-4 text-right" ng-click="Lightbox.nextImage()">
+                <a class="no-underline">
                     Next ›
                 </a>
             </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de" ng-app="ikioi" ng-controller="IkioiCtrl">
+<html lang="en" ng-app="ikioi" ng-controller="IkioiCtrl">
 <head>
 	<title ng-bind="pageTitle">勢い</title>
 	<base href="/">
@@ -38,7 +38,7 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 
 	<!-- Stylesheets -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat|Droid+Sans:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 	<% styles.forEach( function ( file ) { %>
 		<link rel="stylesheet" type="text/css" href="<%= file %>">
 	<% }); %>
@@ -50,14 +50,16 @@
 	<div class="container" ui-view="header"></div>
 
 	<div class="container">
-		<div class="view-frame-container">
-			<div ui-view="main" class="view-frame"></div>
+		<div class="animation-frame-container">
+			<div ui-view="main" class="animation-frame"></div>
 		</div>
 	</div>
 
-	<div class="view-frame-container background-video" id="background-video" ng-style="{'background-image': 'url(\''+backgroundVideo.posterURL+'\')'}">
-		<div ui-view="video" class="view-frame background-video"></div>
+	<div class="desktop-only animation-frame-container full-screen" id="background-video">
+		<div ui-view="video" class="animation-frame full-screen" ng-animate="'transition'"></div>
 	</div>
+
+	<div class="mobile-only full-screen" id="background-video-poster" ng-style="{'background-image': 'url(\''+backgroundVideo.posterURL+'\')'}"></div>
 
 	<!-- compiled JavaScript -->
 	<% scripts.forEach( function ( file ) { %>

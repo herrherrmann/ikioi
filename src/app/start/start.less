@@ -81,7 +81,7 @@
         min-width     : 50px + 10px;
 
         .song-block {
-            // opacity         : 0.5;
+            opacity         : 0.5;
             // color           : @text-main;
             background-image: url('assets/img/song-icons.png');
             background-size : 350px 50px;
@@ -96,10 +96,11 @@
             align-content   : center;
 
             &.disabled {
-                opacity: 0.5;
+                visibility: hidden;
             }
 
             &:hover:not(.disabled) {
+                opacity         : 0.8;
                 color           : @text-muted;
                 background-color: @bg-main-bright;
             }
@@ -107,6 +108,7 @@
             &.active,
             &.active:hover {
                 opacity         : 1.0;
+                visibility      : visible;
                 color           : @text-main;
                 background-color: @bg-main-bright;
             }

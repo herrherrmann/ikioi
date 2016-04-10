@@ -1,24 +1,16 @@
 angular.module('ikioi')
 
-.controller('IkioiCtrl', ($rootScope, $sce, $uibModalStack, backgroundVideo) => {
+.controller('IkioiCtrl', ($rootScope, $sce, $uibModalStack) => {
 
 	$rootScope.$on('$stateChangeSuccess', (event, toState, toParams, fromState, fromParams) => {
 		// Close all modals.
 		$uibModalStack.dismissAll();
-		const currentPageName = extractAssetName(toState.name);
-		setPageTitle(currentPageName);
-		backgroundVideo.setBackgroundVideo(currentPageName);
-
+		const pageName = extractAssetName(toState.name);
+		setPageTitle(pageName);
 	});
 
 	function extractAssetName(stateName) {
-		const assetName = stateName.substr(5); // remove 'site.'
-		switch(assetName) {
-			case 'impressum':
-				return 'start';
-			default:
-				return assetName;
-		}
+		return stateName.substr(5); // remove 'site.'
 	}
 
 	function setPageTitle(title) {

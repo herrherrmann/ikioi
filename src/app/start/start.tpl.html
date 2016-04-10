@@ -45,8 +45,8 @@
             <i class="fa"
                 ng-class="{
                     'fa-ellipsis-h': isLoading,
-                    'fa-play':  !isLoading && !isPlaying,
-                    'fa-pause': !isLoading &&  isPlaying
+                    'fa-play':  (!isLoading &&  player.paused),
+                    'fa-pause': (!isLoading && !player.paused)
                 }">
             </i>
         </button>
