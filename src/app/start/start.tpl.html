@@ -1,9 +1,13 @@
 <div class="row">
     <div class="col-xs-12 col-sm-7 col-sm-offset-3 col-lg-8 col-lg-offset-2 play-list-mode text-center">
-        <a ng-click="setPlaylistMode(false)" ng-class="{'active': !playlistMode && playlistModeSelected}">it's on you.</a>
-        <div ng-click="setPlaylistMode(playlistModeSelected ? !playlistMode : false)" class="play-list-mode-switcher" ng-class="{'active': !playlistMode && playlistModeSelected}"></div>
-        <div ng-click="setPlaylistMode(playlistModeSelected ? !playlistMode : true)"  class="play-list-mode-switcher" ng-class="{'active':  playlistMode && playlistModeSelected}"></div>
-        <a ng-click="setPlaylistMode(true)"  ng-class="{'active':  playlistMode && playlistModeSelected}">it's on us.</a>
+        <a ng-click="setPlaylistMode(false)" ng-class="{'active': !playlistMode && playlistModeSelected}">
+            it's on you.
+            <div class="play-list-mode-switcher"></div>
+        </a>
+        <a ng-click="setPlaylistMode(true)"  ng-class="{'active':  playlistMode && playlistModeSelected}">
+            <div class="play-list-mode-switcher"></div>
+            it's on us.
+        </a>
     </div>
 </div>
 
@@ -37,8 +41,14 @@
 <div class="row" uib-collapse="!playlistModeSelected || !currentSong">
 
     <div class="col-xs-2 col-sm-2 col-sm-offset-3 col-lg-1 col-lg-offset-2">
-        <button type="button" class="btn-player pull-right" ng-click="play(currentSong)">
-            <i class="fa" ng-class="{'fa-play': !isPlaying, 'fa-pause': isPlaying}"></i>
+        <button type="button" class="btn-player pull-right" ng-click="playPause(currentSong)">
+            <i class="fa"
+                ng-class="{
+                    'fa-ellipsis-h': isLoading,
+                    'fa-play':  !isLoading && !isPlaying,
+                    'fa-pause': !isLoading &&  isPlaying
+                }">
+            </i>
         </button>
         <audio id="audio-player" preload="auto">
             <source src="" type="audio/mpeg" id="mp3-source">

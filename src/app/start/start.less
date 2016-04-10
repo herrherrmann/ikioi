@@ -1,36 +1,49 @@
 .play-list-mode {
+    font-size: 0; // hack to remove white-space
+
     a {
-        &.active {
-            font-weight    : 700;
-            text-decoration: none;
-        }
-    }
-
-    &-switcher {
-        display      : inline-block;
-        width        : 20px;
-        height       : 12px;
-        border       : 1px solid @text-main;
-        box-shadow   : 1px 1px 2px 0 rgba(0,0,0,0.65);
-        margin-bottom: -2px;
-
-        &:nth-of-type(0n+1) {
-            margin-left       : @padding-small;
-            border-right-width: 0;
-        }
-
-        &:nth-of-type(0n+2) {
-            margin-right: @padding-small;
-        }
-
-        &:hover {
-            background-color: rgba(255,255,255,0.2);
-        }
+        font-size: @text-size-normal;
+        margin   : 0;
+        padding  : 0;
 
         &.active,
         &.active:hover {
-            background-color: @text-main;
-            border-color    : @text-main;
+            font-weight    : 700;
+            text-decoration: none;
+
+            .play-list-mode-switcher {
+                background-color: @text-main;
+                border-color    : @text-main;
+            }
+        }
+
+        &:hover {
+            .play-list-mode-switcher {
+                background-color: rgba(255,255,255,0.2);
+            }
+        }
+
+        &:nth-of-type(0n+1) {
+            .play-list-mode-switcher {
+                margin-left       : @padding-small;
+                border-right-width: 0;
+            }
+        }
+
+        &:nth-of-type(0n+2) {
+            .play-list-mode-switcher {
+                margin-left : -1px;
+                margin-right: @padding-small;
+            }
+        }
+
+        .play-list-mode-switcher {
+            display      : inline-block;
+            width        : 20px;
+            height       : 12px;
+            border       : 1px solid @text-main;
+            box-shadow   : 1px 1px 2px 0 rgba(0,0,0,0.65);
+            margin-bottom: -2px;
         }
     }
 }

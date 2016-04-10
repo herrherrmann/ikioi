@@ -1,17 +1,17 @@
 angular.module('ikioi')
 
 .controller('StartCtrl', ($scope, $timeout, backgroundVideo) => {
-
 	$scope.setPlaylistMode = setPlaylistMode;
 	$scope.selectSong = selectSong;
-	$scope.play = play;
+	$scope.playPause = playPause;
 
 	const songDirectory = 'assets/audio/';
-	$scope.currentSong = null;
-	$scope.percentage = 0;
-	$scope.isPlaying = false;
+	let player = {};
 	$scope.playlistMode = false;
 	$scope.playlistModeSelected = false;
+	$scope.currentSong = null;
+	$scope.isPlaying = false;
+	$scope.isLoading = false;
 
 	$scope.songs = [{
 		name: 'Produkt Productions Inc.',
@@ -115,15 +115,20 @@ Es ist ein schöner Tag`
 
 	function initialize() {
 		resetPercentages();
+		$timeout(() => {
+			player = document.getElementById('audio-player');
+		});
 	}
 	initialize();
 
 	function setPlaylistMode(mode) {
-		$scope.playlistMode = mode;
-		$scope.playlistModeSelected = true;
-		if($scope.playlistMode) {
-			const firstSong = $scope.songs[0];
-			selectSong(firstSong, true);
+		if(!$scope.playlistModeSelected || $scope.playlistMode !== mode) {
+			$scope.playlistMode = mode;
+			$scope.playlistModeSelected = true;
+			if($scope.playlistMode) {
+				const firstSong = $scope.songs[0];
+				selectSong(firstSong, true);
+			}
 		}
 	}
 
@@ -138,71 +143,107 @@ Es ist ein schöner Tag`
 		if($scope.playlistMode && !force) {
 			return false;
 		}
-		if($scope.currentSong !== song) {
+		if($scope.currentSong !== song || force) {
 			// Select new song.
-			pause();
 			resetPercentages();
+			pause();
 			$scope.currentSong = song;
 			$timeout(() => {
-				backgroundVideo.setBackgroundVideo(song.resource);
-				setPlayerSource(song);
-				play(song);
+				backgroundVideo.setBackgroundVideo($scope.currentSong.resource);
+				setPlayerSource($scope.currentSong);
+				initializePlayer();
 			});
 		} else {
 			// Same song --> just toggle play/pause.
-			play(song);
+			playPause();
 		}
 	}
 
-	function play(song) {
-		let player = document.getElementById('audio-player');
-		if(player.paused) {
-			player.play();
-			$scope.isPlaying = true;
-			// Update percentage while playing:
-			player.addEventListener('timeupdate', () => {
-				updateSongProgress(song, player);
-			}, false);
+	const listeners = {
+		onCanplay: () => {
+			play();
+		},
+		onWaiting: () => {
+			$scope.isPlaying = false;
+			$scope.isLoading = true;
+		},
+		onTimeupdate: () => {
+			updatePercentage($scope.currentSong);
+		},
+		onAbort: () => {
+			player.removeEventListener('timeupdate', listeners.onTimeupdate);
+			player.removeEventListener('canplay', listeners.onCanplay);
+			player.removeEventListener('waiting', listeners.onWaiting);
+			$scope.currentSong.percentage = 0;
+		},
+		onEnded: () => {
+			player.removeEventListener('timeupdate', listeners.onTimeupdate);
+			player.removeEventListener('canplay', listeners.onCanplay);
+			player.removeEventListener('waiting', listeners.onWaiting);
+			$scope.currentSong.percentage = 0;
+			pause();
+			const nextIndex = $scope.currentSong.index + 1;
+			if(nextIndex < $scope.songs.length) {
+				selectSong($scope.songs[nextIndex], true);
+			}
+		},
+	};
 
-			// Play next Song (if available).
-			player.addEventListener('ended', (end) => {
-				song.percentage = 0;
-				pause();
-				const nextIndex = song.index + 1;
-				if(nextIndex < $scope.songs.length - 1) {
-					selectSong($scope.songs[nextIndex], true);
-				}
-			}, false);
+	function initializePlayer(song) {
+		$scope.isLoading = true;
+
+		player.addEventListener('waiting', listeners.onWaiting, false);
+
+		// Play when ready.
+		player.addEventListener('canplay', listeners.onCanplay, false);
+
+		// Update percentage while playing:
+		player.addEventListener('timeupdate', listeners.onTimeupdate, false);
+
+		// player.addEventListener('abort', listeners.onAbort, false);
+
+		// Play next Song (if available).
+		player.addEventListener('ended', listeners.onEnded, false);
+	}
+
+	/**
+	 * Toggle between play/pause.
+	 */
+	function playPause() {
+		if(player.paused) {
+			play();
 		} else {
 			pause();
 		}
 	}
 
-	function updateSongProgress(song, player) {
+	function updatePercentage(song) {
 		song.percentage = Number((player.currentTime / player.duration) * 100);
-		if(song.percentage >= 100) {
-			player.removeEventListener('timeupdate');
-		}
+	}
+
+	function play() {
+		player.play();
+		$scope.isPlaying = true;
+		$scope.isLoading = false;
 	}
 
 	function pause() {
-		let player = document.getElementById('audio-player');
 		player.pause();
 		$scope.isPlaying = false;
+		$scope.isLoading = false;
 	}
 
 	/**
 	 * Set the player sources (mp3 + ogg), load the song and return true if there was a (song) change.
 	 */
 	function setPlayerSource(song) {
-		let player = document.getElementById('audio-player');
 		let sources = {
 			mp3Source: document.getElementById('mp3-source'),
 			oggSource: document.getElementById('ogg-source')
 		};
 		if(sources.mp3Source.src !== songDirectory + song.resource + '.mp3') {
 			// Stop media download (?).
-			player.removeAttribute("src");
+			player.removeAttribute('src');
 			// Set new sources.
 			sources.mp3Source.src = songDirectory + song.resource + '.mp3';
 			sources.oggSource.src = songDirectory + song.resource + '.ogg';
