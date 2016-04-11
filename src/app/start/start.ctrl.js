@@ -13,103 +13,103 @@ angular.module('ikioi')
 	$scope.isLoading = false;
 
 	$scope.songs = [{
-		name: 'Produkt Productions Inc.',
+		name: 'produkt productions inc.',
 		index: 0,
 		icon: '',
 		resource: '1-produktproductionsinc',
-		lyrics: `Den Weg nach oben/unten musst du alleine gehen<br>
-Besser gehen, als bei lebendigem Leibe zu verwesen, sag ich mal<br>
-Aber ich sag ja auch: "Lass die Pumpe mal machen! Unternimm nichts!"<br>
-Denn Unternehmen, das wissen wir, funktionieren nur sehr fragmentarisch<br>
-Und eigentlich kannst du ja auch etwas damit anfangen, ist ja klar<br>
-Ist ja klar, dass du deshalb nie etwas anfängst, weil du etwas damit anfangen könntest<br>
-Ist ja klar<br>
-Und ich sag noch: "Nimm die Abkürzung! Wer nicht fühlen will, muss fühlen!"<br>
-Nun gut, du hast die Qual, jedoch: Die Option existiert<br>
-Apropos Wahrnehmung: Freunde sind kontraproduktive Faktoren<br>
-Also, ich meine, kontraproduktive Faktoren sind Freunde`
+		lyrics: `den weg nach oben/unten musst du alleine gehen<br>
+besser gehen, als bei lebendigem leibe zu verwesen, sag ich mal<br>
+aber ich sag ja auch: "lass die pumpe mal machen! unternimm nichts!"<br>
+denn unternehmen, das wissen wir, funktionieren nur sehr fragmentarisch<br>
+und eigentlich kannst du ja auch etwas damit anfangen, ist ja klar<br>
+ist ja klar, dass du deshalb nie etwas anfängst, weil du etwas damit anfangen könntest<br>
+ist ja klar<br>
+und ich sag noch: "nimm die abkürzung! wer nicht fühlen will, muss fühlen!"<br>
+nun gut, du hast die qual, jedoch: die option existiert<br>
+apropos wahrnehmung: freunde sind kontraproduktive faktoren<br>
+also, ich meine, kontraproduktive faktoren sind freunde`
 	}, {
-		name: 'Apollo Nölf',
+		name: 'apollo nölf',
 		index: 1,
 		icon: '',
 		resource: '2-apollonoelf',
-		lyrics: `Wann immer ich kann, bin ich der Unruhestifter auf dem Mond<br>
-Ich nehme meine lautesten Instrumente und springe meterhoch ins Vakuum<br>
-Und dort stifte ich dann Unruhe<br>
-Einfach so, vor mich hin, mache ich bei Ebbe auf die Flut aufmerksam<br>
-Einfach so, um mich herum, auf dem Mond<br>
-Es tut mir ja Leid, aber denkt doch mal an die Dämme<br>
-Und komm mir nicht mit: "Auf dem Mond gibt es gar keine Gezeiten."<br>
-Wenn ich will, gibt es sogar Leben auf dem Mond`
+		lyrics: `wann immer ich kann, bin ich der unruhestifter auf dem mond<br>
+ich nehme meine lautesten instrumente und springe meterhoch ins vakuum<br>
+und dort stifte ich dann unruhe<br>
+einfach so, vor mich hin, mache ich bei ebbe auf die flut aufmerksam<br>
+einfach so, um mich herum, auf dem mond<br>
+es tut mir ja leid, aber denkt doch mal an die dämme<br>
+und komm mir nicht mit: "auf dem mond gibt es gar keine gezeiten."<br>
+wenn ich will, gibt es sogar leben auf dem mond`
 	}, {
-		name: 'Bitter Lemming',
+		name: 'bitter lemming',
 		index: 2,
 		icon: '',
 		resource: '3-bitterlemming',
-		lyrics: `Wenn dir das Leben Zitronen schenkt, lass sie verrotten<br>
-Meine Weitsicht lässt nichts zu<br>
-Uns allen drückt der Schuh<br>
-Ich bin farbenblind vor Wut<br>
-Ich bin farbenblind<br>
-Nein, du bist nicht die Einzige, aber das könnte auch der Vorwurf sein<br>
-Nein, du bist nicht der Einzige, aber das könnte auch der Vorwurf sein`
+		lyrics: `wenn dir das leben zitronen schenkt, lass sie verrotten<br>
+meine weitsicht lässt nichts zu<br>
+uns allen drückt der schuh<br>
+ich bin farbenblind vor wut<br>
+ich bin farbenblind<br>
+nein, du bist nicht die einzige, aber das könnte auch der vorwurf sein<br>
+nein, du bist nicht der einzige, aber das könnte auch der vorwurf sein`
 	}, {
-		name: 'Kosmopilot',
+		name: 'kosmopilot',
 		index: 3,
 		icon: '',
 		resource: '4-kosmopilot',
-		lyrics: `Pass voller Farbe und die Beine voller Blutgerinsel<br>
-Weder hier und jetzt, noch wo und wann komme ich an<br>
-Anhand von Signa kann ich genau sehen wie viel ich bin<br>
-Was ja in Ordnung ist<br>
-Was ja gelogen ist<br>
-Was ja in Ordnung ist<br>
-Ein nicht heraufbeschworener Absturz steht einem heraufbeschworenen Absturz in nichts nach<br>
-Übrigens auch die Begründung für mein Tun und Zutun<br>
-Falls sich noch jemand wundert:<br>
-Ich bin Gottlos`
+		lyrics: `pass voller farbe und die beine voller blutgerinsel<br>
+weder hier und jetzt, noch wo und wann komme ich an<br>
+anhand von signa kann ich genau sehen wie viel ich bin<br>
+was ja in ordnung ist<br>
+was ja gelogen ist<br>
+was ja in ordnung ist<br>
+ein nicht heraufbeschworener absturz steht einem heraufbeschworenen absturz in nichts nach<br>
+übrigens auch die begründung für mein tun und zutun<br>
+falls sich noch jemand wundert:<br>
+ich bin gottlos`
 	}, {
-		name: 'Entertainmentbrandstiftung',
+		name: 'entertainmentbrandstiftung',
 		index: 4,
 		icon: '',
 		resource: '5-entertainmentbrandstiftung',
-		lyrics: `Wie Schelme schauen wir, vor allem und nur zu<br>
-Lassen wir uns mitreißen, von allem, um zu ruhen<br>
-Gesicht noch immer schelmisch<br>
-Entertainment, Brandstiftung, Entertainmentbrandstiftung<br>
-Feuer! Und wir ruhen<br>
-Wir erwarten viel von nichts<br>
-Wir bauen Türen, vor allem und nur zu<br>
-Vom vielen Bauen so angestrengt legen wir uns hin und wir ruhen<br>
-Indes brennt unsere Liegestatt ab<br>
-Decke über den Kopf, liegen bleiben<br>
-Es wird wärmer und wir ruhen<br>
-Und du magst dieses Leben nicht<br>
-Das Sedativ macht apathisch<br>
-Legt fest, wann für dich Mittag ist<br>
-Und ob es Gründe zum Schreien gibt`
+		lyrics: `wie schelme schauen wir, vor allem und nur zu<br>
+lassen wir uns mitreißen, von allem, um zu ruhen<br>
+gesicht noch immer schelmisch<br>
+entertainment, brandstiftung, entertainmentbrandstiftung<br>
+feuer! und wir ruhen<br>
+wir erwarten viel von nichts<br>
+wir bauen türen, vor allem und nur zu<br>
+vom vielen bauen so angestrengt legen wir uns hin und wir ruhen<br>
+indes brennt unsere liegestatt ab<br>
+decke über den kopf, liegen bleiben<br>
+es wird wärmer und wir ruhen<br>
+und du magst dieses leben nicht<br>
+das sedativ macht apathisch<br>
+legt fest, wann für dich mittag ist<br>
+und ob es gründe zum schreien gibt`
 	}, {
-		name: 'Ferdina',
+		name: 'ferdina',
 		index: 5,
 		icon: '',
 		resource: '6-ferdina',
-		lyrics: `Vergleiche liegen mir so unerreichbar fern<br>
-Zum Vergleich hab' ich da mal was vorbereitet<br>
-Die dritte Person kann es besser als die zweite<br>
-Steinigt alle, die denken, sie lebten hier Elle an Elle<br>
-Rote Armbinden, ein A, ein Kreis drum, drei Punkte`
+		lyrics: `vergleiche liegen mir so unerreichbar fern<br>
+zum vergleich hab' ich da mal was vorbereitet<br>
+die dritte person kann es besser als die zweite<br>
+steinigt alle, die denken, sie lebten hier elle an elle<br>
+rote armbinden, ein a, ein kreis drum, drei punkte`
 	}, {
-		name: 'Killerwels in Wildweser',
+		name: 'killerwels in wildweser',
 		index: 6,
 		icon: '',
 		resource: '7-killerwelsinwildweser',
-		lyrics: `Es wird ein schöner Tag - der Tag an dem die Segel reißen<br>
-Wir könnten schwimmen, wir könnten einfach ewig treiben<br>
-Sind jetzt deformiert vom Wasser<br>
+		lyrics: `es wird ein schöner tag - der tag an dem die segel reißen<br>
+wir könnten schwimmen, wir könnten einfach ewig treiben<br>
+sind jetzt deformiert vom wasser<br>
 müssen schwimmen, ob wir wollen oder nicht und ob wir können oder nicht<br>
-Ich war noch nie ein guter Schwimmer<br>
-Ich versinke, du bist eine Wasserleiche<br>
-Es ist ein schöner Tag`
+ich war noch nie ein guter schwimmer<br>
+ich versinke, du bist eine wasserleiche<br>
+es ist ein schöner tag`
 	}];
 
 	function initialize() {
