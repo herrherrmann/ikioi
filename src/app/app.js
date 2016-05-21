@@ -9,7 +9,8 @@ angular.module('ikioi', [
 	'templates-app'
 ])
 
-.config(($locationProvider, $urlRouterProvider, LightboxProvider) => {
+.config(($compileProvider, $locationProvider, $urlRouterProvider, LightboxProvider) => {
+	$compileProvider.debugInfoEnabled(false);
 	$locationProvider.html5Mode(true);
 	$urlRouterProvider.otherwise('/');
 	LightboxProvider.templateUrl = 'common/lightbox.tpl.html';
