@@ -101,7 +101,9 @@ gulp.task('lint', function() {
 	return gulp.src(paths.components.concat(paths[environment.getEnv()].js))
 		.pipe(plugins.cached('linting'))
 		// .pipe(plugins.changed(paths.build_dir))
-		.pipe(plugins.jshint())
+		.pipe(plugins.jshint({
+			esnext: true,
+		}))
 		.pipe(plugins.jshint.reporter('jshint-stylish'))
 		.pipe(plugins.jshint.reporter('fail'));
 });
