@@ -2,9 +2,9 @@
 
     <div class="col-xs-12 col-sm-12 col-md-5 col-md-offset-2">
         <h1>upcoming</h1>
-        <!-- <p>
+        <p ng-if="!(events | filter:{inPast:false}).length">
             &hellip;
-        </p> -->
+        </p>
         <table>
             <tr ng-repeat="event in events | filter:{inPast:false} | orderBy:'number' track by $index">
                 <td>{{::event.number}}</td>

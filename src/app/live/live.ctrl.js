@@ -111,11 +111,7 @@ angular.module('ikioi')
 	function init() {
 		$scope.events.forEach((event, index) => {
 			event.number = getNumberString($scope.events.length - index);
-			if (event.date.getTime() < today.getTime()) {
-				event.inPast = true;
-			} else {
-				event.inPast = false;
-			}
+			event.inPast = event.date.getTime() < today.getTime();
 		});
 	}
 
