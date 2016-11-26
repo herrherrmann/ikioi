@@ -188,19 +188,14 @@ es ist ein schöner tag`
 		},
 	};
 
-	function initializePlayer(song) {
+	function initializePlayer() {
 		$scope.isLoading = true;
-
 		player.addEventListener('waiting', listeners.onWaiting, false);
-
 		// Play when ready.
 		player.addEventListener('canplay', listeners.onCanplay, false);
-
 		// Update percentage while playing:
 		player.addEventListener('timeupdate', listeners.onTimeupdate, false);
-
 		// player.addEventListener('abort', listeners.onAbort, false);
-
 		// Play next Song (if available).
 		player.addEventListener('ended', listeners.onEnded, false);
 	}
