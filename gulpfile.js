@@ -5,9 +5,6 @@ var del = require('del');
 var globby = require('globby');
 var runSequence = require('run-sequence');
 var merge = require('merge-stream');
-var es = require('event-stream');
-var exec = require('child_process')
-	.exec;
 var browserSync = require('browser-sync')
 	.create();
 var historyFallback = require('connect-history-api-fallback');
@@ -17,7 +14,6 @@ require('require-dir')('./gulp-tasks');
 var project = require('./package.json');
 var paths = require('./build.config.js');
 var environment = require('./gulp-tasks/environment.js');
-
 
 function getPreprocessContext() {
 	return {
@@ -51,8 +47,7 @@ function getTemplateProperties(dir) {
 	];
 	globs[paths.compile_dir] = ['*.js'];
 
-
-	if(dir == paths.build_dir) {
+	if (dir == paths.build_dir) {
 		var vendors = paths.vendor.js;
 		vendorScripts = vendors.map(function(item) {
 			return 'vendor' + item.substring(item.lastIndexOf('/'));
@@ -78,20 +73,6 @@ function getTemplateProperties(dir) {
 
 	return result;
 }
-
-function filterJs(files) {
-	return files.filter(function(file) {
-		return file.match(/\.js$/);
-	});
-}
-
-function filterCss(files) {
-	return files.filter(function(file) {
-		return file.match(/\.css$/);
-	});
-}
-
-
 
 gulp.task('clean', function() {
 	return del([paths.build_dir, paths.compile_dir]);
@@ -236,7 +217,7 @@ gulp.task('watch', ['default'], function(cb) {
 	// vendor -> restart
 	// gulpfile -> restart
 
-	if(environment.getEnv() == 'web') {
+	if (environment.getEnv() == 'web') {
 		browserSync.init({
 			server: {
 				baseDir: paths.build_dir,
@@ -272,7 +253,6 @@ gulp.task('_browser-reload', function(cb) {
 	browserSync.reload();
 	cb();
 });
-
 
 gulp.task('default', function(cb) {
 	return runSequence(
