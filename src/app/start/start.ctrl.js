@@ -58,7 +58,7 @@ nein, du bist nicht der einzige, aber das könnte auch der vorwurf sein`
 		index: 3,
 		icon: '',
 		resource: '4-kosmopilot',
-		lyrics: `pass voller farbe und die beine voller blutgerinsel<br>
+		lyrics: `pass voller farbe und die beine voller blutgerinnsel<br>
 weder hier und jetzt, noch wo und wann komme ich an<br>
 anhand von signa kann ich genau sehen wie viel ich bin<br>
 was ja in ordnung ist<br>
