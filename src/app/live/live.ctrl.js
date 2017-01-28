@@ -105,11 +105,11 @@ angular.module('ikioi')
 		location: 'köln, privat',
 		support: 'rollergirls, birmingham pines',
 	}, {
-		date: new Date(2017, 2, 6),
+		date: new Date(2017, 1, 6),
 		location: 'mainz, kulturcafé',
 		support: 'zero absolu',
 	}, {
-		date: new Date(2017, 3, 27),
+		date: new Date(2017, 2, 27),
 		location: 'leipzig, bermudadreieck',
 		support: 'karies',
 	}, ];
