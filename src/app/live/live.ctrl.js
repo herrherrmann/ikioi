@@ -104,6 +104,14 @@ angular.module('ikioi')
 		date: new Date(2014, 4, 23),
 		location: 'köln, privat',
 		support: 'rollergirls, birmingham pines',
+	}, {
+		date: new Date(2017, 2, 6),
+		location: 'mainz, kulturcafé',
+		support: 'zero absolu',
+	}, {
+		date: new Date(2017, 3, 27),
+		location: 'leipzig, bermudadreieck',
+		support: 'karies',
 	}, ];
 
 	init();
