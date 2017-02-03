@@ -3,7 +3,7 @@
 	"version": "0.1.8",
 	"author": "Ikioi",
 	"homepage": "https://www.unruhe.org",
-	"repository": "https://github.com/herrherrmann/schwung",
+	"repository": "https://github.com/herrherrmann/ikioi",
 	"license": "NONE",
 	"devDependencies": {
 		"angular-mocks": "^1.5.3",
