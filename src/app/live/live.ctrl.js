@@ -1,11 +1,17 @@
-angular.module('ikioi')
-
-.controller('LiveCtrl', ($scope) => {
+angular.module('ikioi').controller('LiveCtrl', ($scope) => {
 	const today = new Date();
-	$scope.events = [{
+	const events = [{
 		date: new Date(2017, 3, 26),
 		location: 'darmstadt, oetinger villa',
 		support: 'for them all, frau ruth',
+	}, {
+		date: new Date(2017, 2, 27),
+		location: 'leipzig, bermudadreieck',
+		support: 'karies',
+	}, {
+		date: new Date(2017, 1, 6),
+		location: 'mainz, kulturcafé',
+		support: 'zero absolu',
 	}, {
 		date: new Date(2016, 11, 7),
 		location: 'kassel, goldgrube',
@@ -104,22 +110,15 @@ angular.module('ikioi')
 		date: new Date(2014, 4, 23),
 		location: 'köln, privat',
 		support: 'rollergirls, birmingham pines',
-	}, {
-		date: new Date(2017, 1, 6),
-		location: 'mainz, kulturcafé',
-		support: 'zero absolu',
-	}, {
-		date: new Date(2017, 2, 27),
-		location: 'leipzig, bermudadreieck',
-		support: 'karies',
 	}, ];
 
 	init();
 
 	function init() {
-		$scope.events.forEach((event, index) => {
-			event.number = getNumberString($scope.events.length - index);
+		$scope.events = events.map((event, index) => {
+			event.number = getNumberString(events.length - index);
 			event.inPast = event.date.getTime() < today.getTime();
+			return event;
 		});
 	}
 
