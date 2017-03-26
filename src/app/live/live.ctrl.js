@@ -1,14 +1,16 @@
 angular.module('ikioi').controller('LiveCtrl', ($scope, EVENTS) => {
-	const today = new Date();
 
 	init();
 
 	function init() {
-		$scope.events = EVENTS.map((event, index) => {
-			event.number = getNumberString(EVENTS.length - index);
-			event.inPast = event.date.getTime() < today.getTime();
-			return event;
-		});
+		const today = new Date();
+		$scope.events = EVENTS
+			.sort((eventA, eventB) => (eventB.date.getTime() - eventA.date.getTime()))
+			.map((event, index) => {
+				event.number = getNumberString(EVENTS.length - index);
+				event.inPast = event.date.getTime() <= today.getTime();
+				return event;
+			});
 	}
 
 	function getNumberString(index) {
