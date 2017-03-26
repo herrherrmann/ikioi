@@ -1,6 +1,4 @@
-angular.module('ikioi')
-
-.controller('StartCtrl', ($scope, $rootScope, $timeout) => {
+angular.module('ikioi').controller('StartCtrl', ($scope, $rootScope, $timeout) => {
 	$scope.setPlaylistMode = setPlaylistMode;
 	$scope.selectSong = selectSong;
 	$scope.playPause = playPause;
@@ -122,10 +120,10 @@ es ist ein schöner tag`
 	initialize();
 
 	function setPlaylistMode(mode) {
-		if(!$scope.playlistModeSelected || $scope.playlistMode !== mode) {
+		if (!$scope.playlistModeSelected || $scope.playlistMode !== mode) {
 			$scope.playlistMode = mode;
 			$scope.playlistModeSelected = true;
-			if($scope.playlistMode) {
+			if ($scope.playlistMode) {
 				const firstSong = $scope.songs[0];
 				selectSong(firstSong, true);
 			}
@@ -140,10 +138,10 @@ es ist ein schöner tag`
 
 	function selectSong(song, force) {
 		// Prevent manual song selection in playlist mode.
-		if($scope.playlistMode && !force) {
+		if ($scope.playlistMode && !force) {
 			return false;
 		}
-		if($scope.currentSong !== song || force) {
+		if ($scope.currentSong !== song || force) {
 			// Select new song.
 			resetPercentages();
 			pause();
@@ -182,7 +180,7 @@ es ist ein schöner tag`
 			$scope.currentSong.percentage = 0;
 			pause();
 			const nextIndex = $scope.currentSong.index + 1;
-			if(nextIndex < $scope.songs.length) {
+			if (nextIndex < $scope.songs.length) {
 				selectSong($scope.songs[nextIndex], true);
 			}
 		},
@@ -204,7 +202,7 @@ es ist ein schöner tag`
 	 * Toggle between play/pause.
 	 */
 	function playPause() {
-		if(player.paused) {
+		if (player.paused) {
 			play();
 		} else {
 			pause();
@@ -233,7 +231,7 @@ es ist ein schöner tag`
 			mp3Source: document.getElementById('mp3-source'),
 			oggSource: document.getElementById('ogg-source')
 		};
-		if(sources.mp3Source.src !== songDirectory + song.resource + '.mp3') {
+		if (sources.mp3Source.src !== songDirectory + song.resource + '.mp3') {
 			// Stop media download (?).
 			player.removeAttribute('src');
 			// Set new sources.
