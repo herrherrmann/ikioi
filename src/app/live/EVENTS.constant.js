@@ -4,14 +4,6 @@ angular.module('ikioi').constant('EVENTS', [{
 	location: 'darmstadt, oetinger villa',
 	support: 'for them all, frau ruth',
 }, {
-	date: new Date(2017, 2, 26),
-	location: 'dresden, az conni',
-	support: 'kosmetik',
-}, {
-	date: new Date(2017, 2, 27),
-	location: 'leipzig, bermudadreieck',
-	support: 'karies',
-}, {
 	date: new Date(2017, 1, 6),
 	location: 'mainz, kulturcafé',
 	support: 'zero absolu',
