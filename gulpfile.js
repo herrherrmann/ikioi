@@ -11,7 +11,6 @@ var historyFallback = require('connect-history-api-fallback');
 
 require('require-dir')('./gulp-tasks');
 
-var project = require('./package.json');
 var paths = require('./build.config.js');
 var environment = require('./gulp-tasks/environment.js');
 
@@ -124,28 +123,17 @@ gulp.task('compile-assets', function() {
 });
 
 gulp.task('styles', [], function() {
-	var streams = {};
-
-	streams.less = gulp.src(paths[environment.getEnv()].less)
+	return gulp.src(paths[environment.getEnv()].less)
 		.pipe(plugins.preprocess(getPreprocessContext()))
 		.pipe(plugins.less())
 		.pipe(plugins.concat(project.name + '-' + project.version + '.css'))
 		.pipe(plugins.autoprefixer(['> 1%', 'last 3 versions']))
-		// .pipe(plugins.purifycss(paths[environment.getEnv()].js.concat(paths[environment.getEnv()].atpl))) // not fully working
 		.pipe(gulp.dest(paths.build_dir));
-
-	streams.sass = gulp.src(paths[environment.getEnv()].sass)
-		.pipe(plugins.sass())
-		.pipe(gulp.dest(paths.build_dir));
-
-	return merge(streams.less, streams.sass);
 });
 
 gulp.task('compile-styles', function() {
 	return gulp.src(paths.build_dir + '*.css')
-		.pipe(plugins.minifyCss({
-			processImport: false
-		}))
+		.pipe(plugins.cleanCss())
 		.pipe(gulp.dest(paths.compile_dir));
 });
 
