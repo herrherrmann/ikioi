@@ -1,5 +1,17 @@
 // HINT: Months are zero-based, days and years are one-based!
 angular.module('ikioi').constant('EVENTS', [{
+	date: new Date(2017, 11, 2),
+	location: 'darmstadt, oetinger villa',
+	support: 'oligarchy',
+}, {
+	date: new Date(2017, 6, 17),
+	location: 'mainz, haus mainusch',
+	support: 'jarod',
+}, {
+	date: new Date(2017, 6, 15),
+	location: 'sulzbach-rosenberg, altes bad',
+	support: 'lost boys, akne kid joe',
+}, {
 	date: new Date(2017, 3, 26),
 	location: 'darmstadt, oetinger villa',
 	support: 'for them all, frau ruth',
