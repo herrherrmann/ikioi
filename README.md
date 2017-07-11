@@ -4,11 +4,11 @@ Website for the band 勢い aka [unruhe.org](http://unruhe.org).
 
 # Develop
 
-    yarn install # or npm install
-    gulp watch
+    yarn install
+    yarn run watch
 
 # Deploy
 
-    gulp compile
+    yarn run compile
 
 ... and upload results from `compile` dir to the server.
