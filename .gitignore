@@ -8,3 +8,4 @@ build/
 compile/
 .tmp/
 .idea/
+.DS_Store
