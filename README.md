@@ -20,8 +20,6 @@ npm run watch
 
 ## Build & deployment
 
-```bash
-npm run compile
-```
-
-... and upload results from `compile` dir to the server.
+1. Adjust the version number in `package.json`
+2. Compile the app via `npm run compile`
+3. Upload results from `compile` dir to the server
