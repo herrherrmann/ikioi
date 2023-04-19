@@ -4,13 +4,24 @@ Website for the band 勢い aka [unruhe.org](http://unruhe.org).
 
 ![Screenshot](screenshot.png "Ikioi at unruhe.org")
 
-# Develop
 
-    yarn install
-    yarn run watch
+## Prerequisites
 
-# Deploy
+- Node v16.x with npm
+- Install dependencies with `npm install`
 
-    yarn run compile
+
+## Run local development server
+
+```bash
+npm run watch
+```
+
+
+## Build & deployment
+
+```bash
+npm run compile
+```
 
 ... and upload results from `compile` dir to the server.

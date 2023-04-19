@@ -4,7 +4,11 @@
 	"author": "Ikioi",
 	"homepage": "https://www.unruhe.org",
 	"repository": "https://github.com/herrherrmann/ikioi",
-	"license": "NONE",
+	"license": "UNLICENSED",
+	"scripts": {
+		"watch": "gulp watch",
+		"compile": "gulp compile"
+	},
 	"devDependencies": {
 		"angular-mocks": "^1.5.3",
 		"browser-sync": "^2.18.8",
@@ -17,7 +21,7 @@
 		"gulp-autoprefixer": "^3.1.1",
 		"gulp-babel": "^5.3.0",
 		"gulp-cached": "^1.1.0",
-		"gulp-changed": "^2.3.0",
+		"gulp-changed": "^2.0.0",
 		"gulp-clean-css": "^3.0.4",
 		"gulp-concat": "^2.6.0",
 		"gulp-conventional-changelog": "^0.7.0",
@@ -36,7 +40,7 @@
 		"gulp-uglify": "^1.5.3",
 		"gulp-util": "^3.0.8",
 		"jshint-stylish": "^2.0.1",
-		"require-dir": "^0.3.0",
+		"require-dir": "^1.2.0",
 		"run-sequence": "^1.2.2"
 	},
 	"dependencies": {
@@ -54,5 +58,8 @@
 		"font-awesome": "^4.5.0",
 		"ngtouch": "^1.0.1",
 		"videogular": "^1.4.1"
+	},
+	"overrides": {
+		"graceful-fs": "^4.2.10"
 	}
 }
